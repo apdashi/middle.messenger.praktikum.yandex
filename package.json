@@ -1,0 +1,19 @@
+{
+    "name": "praktikum",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "parcel static/pages/index.html --no-cache --no-source-maps",
+        "build": "parcel build static/pages/index.html"
+    },
+    "keywords": [],
+    "author": "ApdAshi",
+    "license": "ISC",
+    "devDependencies": {
+        "@parcel/transformer-sass": "^2.8.3",
+        "express": "^4.18.2",
+        "parcel": "^2.8.3",
+        "parcel-transformer-hbs": "^1.0.4"
+    }
+}

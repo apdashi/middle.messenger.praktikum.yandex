@@ -1,0 +1,22 @@
+<div class="form">
+    <div class="form__title">{{title}}</div>
+    <form
+        class="form__form"
+        data-component-name="form"
+        data-redirect-url={{redirectUrl}}
+    >
+        {{#each fields}}
+            <input
+                class="form__field"
+                type={{type}}
+                placeholder={{placeholder}}
+                name={{name}}
+            />
+        {{/each}}
+        <button
+            class="form__submit-button"
+            type="submit"
+        >{{submitButton.text}}</button>
+    </form>
+    <a class="form__alt-link" href={{altLink.link}}>{{altLink.text}}</a>
+</div>

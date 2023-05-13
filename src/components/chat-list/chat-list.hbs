@@ -1,0 +1,21 @@
+<div
+    class="chat-list"
+>
+    <div class="chat-list__profile">
+        <a href="/profile.html">Профиль</a>
+    </div>
+    {{> input this.input}}
+    {{#each this.list}}
+        <div class="chat-list__item">
+            {{name}}
+            {{lastTime}}
+            {{#if isYou}}
+                Вы:
+            {{/if}}
+            {{lastMessage}}
+            {{#if countNewMessage}}
+                {{countNewMessage}}
+            {{/if}}
+        </div>
+    {{/each}}
+</div>

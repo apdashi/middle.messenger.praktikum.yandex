@@ -1,0 +1,14 @@
+.chat-list {
+  background-color: #FBFBFB;
+  border-right: 1px solid #EAEAEA;
+  height: 100%;
+}
+.chat-list__item {
+  min-height: 50px;
+  border-top: 1px solid #EAEAEA;
+  cursor: pointer;
+  margin: 10px 5px 0 5px;
+}
+.chat-list__profile {
+    text-align: right;
+}

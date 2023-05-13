@@ -1,0 +1,14 @@
+<div class="enter__form-wrapper">
+    {{> text header}}
+    <form
+        class="enter__form"
+        data-component-name="form"
+        data-redirect-url={{redirectUrl}}
+    >
+        {{#each fields}}
+            {{> input }}
+        {{/each}}
+        {{> button this.button}}
+    </form>
+    <a class={{this.altLink.modifier}} href={{this.altLink.link}}>{{this.altLink.text}}</a>
+</div>

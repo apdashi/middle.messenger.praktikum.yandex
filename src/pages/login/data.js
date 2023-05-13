@@ -1,24 +1,33 @@
 export const data = {
     form: {
-        title: "Вход",
+        header: {
+            title: "Вход",
+            modifier: "text--title-h1",
+        },
         fields: [
             {
                 name: "login",
                 type: "text",
                 placeholder: "Логин",
+                globalModifier: "h-mb--20",
             },
             {
                 name: "password",
                 type: "password",
                 placeholder: "Пароль",
+                globalModifier: "h-mb--20",
             },
         ],
-        submitButton: {
-            text: "Авторизоваться",
+        button: {
+            title: "Авторизоваться",
+            modifier: "enter__form--button",
         },
         altLink: {
-            link: "",
+            link: "/signin.html",
             text: "Нет аккаунта?",
+            modifier: "enter__form--link",
         },
+        modifier: 'h-text--center',
+        redirectUrl: '/chat.html',
     },
 };

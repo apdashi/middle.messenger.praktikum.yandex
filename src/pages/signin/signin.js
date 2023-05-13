@@ -1,7 +1,7 @@
 import { data } from './data';
-import compiledTemplate from "./login.hbs";
+import compiledTemplate from "./signin.hbs";
 import '../../layout/base-center/base-center';
-import "./login.scss";
+import "./signin.scss";
 import "../../components/enter-form/enter-form";
 import "../../components/wrapper/wrapper"
 

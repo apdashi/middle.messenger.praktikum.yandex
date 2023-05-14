@@ -1,0 +1,32 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 141;
+  outline: none;
+  overflow: hidden;
+  transition: all 0.35s;
+  background-color: rgba(0,0,0,0.8);
+  &--overlay {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+  }
+  &--content {
+    width: 400px;
+    float: none;
+    display: block;
+    padding: 2rem 2.5rem 2.5rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    min-height: 300px;
+    opacity: 1;
+    z-index: 130;
+    border-radius: 0.1875rem;
+    position: relative;
+    margin: 8.75rem auto 3.125rem;
+  }
+}

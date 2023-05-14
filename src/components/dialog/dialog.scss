@@ -1,0 +1,35 @@
+.dialog {
+  margin: 0;
+  padding: 0;
+  inset: 0;
+  &--panel {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #999999;
+    align-items: center;
+    &-settings {
+      width: 25px;
+      height: 20px;
+      background-image: url('../../../static/img/settings.svg');
+      cursor: pointer;
+      float: right;
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+  &--messages {
+    overflow: auto;
+    display: block;
+  }
+  &--new-message {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #999999;
+    align-items: center;
+    bottom: 0;
+    position: fixed;
+    width: 75%;
+  }
+}

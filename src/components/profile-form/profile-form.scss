@@ -1,0 +1,38 @@
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  &-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    min-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  &--row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 10px;
+    &:last-child {
+      border-bottom: none;
+    }
+    &-label {
+      text-align: left;
+    }
+    &-value {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+  &--avatar {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &--footer {
+    display: flex;
+    flex-direction: column;
+  }
+}

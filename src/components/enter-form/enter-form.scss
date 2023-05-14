@@ -1,21 +1,21 @@
-.enter__form-wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 40px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
-  border-radius: 12px;
-  min-width: 300px;
-  min-height: 400px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
 .enter__form {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-}
-.enter__form--link {
-  margin-top: auto;
-  margin-bottom: 20px;
+  &-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 40px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
+    border-radius: 12px;
+    min-width: 300px;
+    min-height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  &--link {
+    margin-top: auto;
+    margin-bottom: 20px;
+  }
 }

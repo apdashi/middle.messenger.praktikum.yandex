@@ -1,5 +1,5 @@
 <div
-    class="dialog"
+        class="dialog"
 >
     {{#if messages}}
         <div class="dialog--panel">
@@ -14,7 +14,7 @@
         </div>
         <div class="dialog--new-message">
             {{> button id="file" iconModifier="button--file" modifier="button--while" }}
-            {{> input placeholder="Сообщение"}}
+            {{> input placeholder="Сообщение" name="message"}}
             {{> button iconModifier="button--send" modifier="button--while"}}
         </div>
     {{else}}

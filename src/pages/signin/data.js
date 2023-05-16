@@ -20,14 +20,14 @@ export const data = {
                 label: "Логин",
             },
             {
-                name: "firstName",
+                name: "first_name",
                 type: "text",
                 placeholder: "Имя",
                 globalModifier: "h-mb--20",
                 label: "Имя",
             },
             {
-                name: "lastName",
+                name: "second_name",
                 type: "text",
                 placeholder: "Фамилия",
                 globalModifier: "h-mb--20",

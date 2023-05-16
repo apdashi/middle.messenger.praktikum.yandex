@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+
   &-wrapper {
     padding-left: 30px;
     padding-right: 30px;
@@ -11,27 +12,36 @@
     display: flex;
     flex-direction: column;
   }
+
   &--row {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #999999;
     margin-bottom: 10px;
+
     &:last-child {
       border-bottom: none;
     }
+
     &-label {
       text-align: left;
+      width: 40%;
     }
+
     &-value {
       margin-right: 0;
       margin-left: auto;
+      width: auto;
     }
   }
+
   &--avatar {
     margin-right: auto;
     margin-left: auto;
   }
+
   &--footer {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
   }

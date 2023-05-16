@@ -6,4 +6,4 @@ import "../text/text"
 import "../button/button"
 import "../avatar/avatar"
 
-Handlebars.registerPartial({ profileForm: compiledTemplate });
+Handlebars.registerPartial({profileForm: compiledTemplate});

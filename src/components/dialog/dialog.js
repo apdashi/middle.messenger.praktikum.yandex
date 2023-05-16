@@ -6,4 +6,4 @@ import "../message/message"
 import "../button/button"
 import "../input/input"
 
-Handlebars.registerPartial({ dialog: compiledTemplate });
+Handlebars.registerPartial({dialog: compiledTemplate});

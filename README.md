@@ -1,3 +1,11 @@
+## Информация
+
+ссылка на реквесет [ссылка](https://github.com/apdashi/middle.messenger.praktikum.yandex/pull/2)
+
+Макет в Figma(какие предложили, те и
+использовал) [ссылка](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?type=design&node-id=0-1&t=PFIPSVBRSFeCTuuu-0)
+
+Netlify [ссылка](https://papaya-lily-56199e.netlify.app/)
 
 ## Установка
 

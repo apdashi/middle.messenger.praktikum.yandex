@@ -24,7 +24,7 @@ root.innerHTML = compiledTemplate({
             countNewMessage: 4,
             isYou: false,
             lastTime: '10:49',
-        },{
+        }, {
             name: 'Киноклуб',
             lastMessage: 'Стикер',
             countNewMessage: 0,
@@ -40,7 +40,7 @@ root.innerHTML = compiledTemplate({
                 '\n' +
                 'Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
             time: '11:56',
-        },{
+        }, {
             img: Img,
             time: '11:56',
         }, {

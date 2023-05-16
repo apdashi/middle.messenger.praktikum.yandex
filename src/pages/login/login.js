@@ -1,4 +1,4 @@
-import { data } from './data';
+import {data} from './data';
 import compiledTemplate from "./login.hbs";
 import '../../layout/base-center/base-center';
 import "./login.scss";

@@ -2,18 +2,28 @@
     {{>avatar src=this.header.avatar modifier="profile__form--avatar h-mb--20"}}
     {{>text title=this.header.name modifier="text--bold"}}
     <div
-        class="profile__form"
+            class="profile__form"
     >
         {{#each fields}}
             <div class="profile__form--row">
                 <span class="profile__form--row-label">{{label}}</span>
-                <span class="profile__form--row-value">{{value}}</span>
+                {{#if ../isEdit}}
+                    {{> input }}
+                {{else}}
+                    <span class="profile__form--row-value">{{value}}</span>
+                {{/if}}
             </div>
         {{/each}}
     </div>
     <div class="profile__form--footer">
-        {{#each footer}}
-            {{>button }}
-        {{/each}}
+        {{#if isEdit}}
+            {{#each footerEdit}}
+                {{>button }}
+            {{/each}}
+        {{else}}
+            {{#each footer}}
+                {{>button }}
+            {{/each}}
+        {{/if}}
     </div>
 </div>

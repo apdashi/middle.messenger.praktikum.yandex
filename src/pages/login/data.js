@@ -19,12 +19,12 @@ export const data = {
             },
         ],
         button: {
-            title: "Авторизоваться",
+            title: "Вход",
             modifier: "enter__form--button",
         },
         altLink: {
             link: "/signin.html",
-            text: "Нет аккаунта?",
+            text: "Ещё не зарегистрированы?",
             modifier: "enter__form--link",
         },
         modifier: 'h-text--center',

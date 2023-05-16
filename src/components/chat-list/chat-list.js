@@ -4,4 +4,4 @@ import "./chat-list.scss";
 import "../input/input"
 import "../avatar/avatar"
 
-Handlebars.registerPartial({ chatList: compiledTemplate });
+Handlebars.registerPartial({chatList: compiledTemplate});

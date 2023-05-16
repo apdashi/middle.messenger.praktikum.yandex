@@ -5,4 +5,4 @@ import "../input/input"
 import "../text/text"
 import "../button/button"
 
-Handlebars.registerPartial({ enterForm: compiledTemplate });
+Handlebars.registerPartial({enterForm: compiledTemplate});

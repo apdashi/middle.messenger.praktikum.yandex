@@ -1,23 +1,23 @@
 <div
-    class="input {{globalModifier}}"
+        class="input {{globalModifier}}"
 >
     <label
-        for="{{name}}"
-        class="input__label {{labelModifier}}"
+            for="{{name}}"
+            class="input__label {{labelModifier}}"
     >
         {{label}}
     </label>
     <input
-        class="input__input {{modifier}}"
-        type="{{type}}"
-        placeholder="{{placeholder}}"
-        name="{{name}}"
-        id="{{name}}"
-        value="{{value}}"
+            class="input__input {{modifier}}"
+            type="{{type}}"
+            placeholder="{{placeholder}}"
+            name="{{name}}"
+            id="{{name}}"
+            value="{{value}}"
     />
     {{#if hasError}}
         <div
-            class="input__helptext has-error"
+                class="input__helptext has-error"
         >
             Проверьте значение
         </div>

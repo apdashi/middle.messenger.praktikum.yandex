@@ -3,4 +3,4 @@ import compiledTemplate from "./add-file.hbs";
 import "./add-file.scss";
 import "../modal/modal"
 
-Handlebars.registerPartial({ addFile: compiledTemplate });
+Handlebars.registerPartial({addFile: compiledTemplate});

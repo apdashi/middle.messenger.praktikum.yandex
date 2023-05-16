@@ -8,13 +8,15 @@
   outline: none;
   overflow: hidden;
   transition: all 0.35s;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
+
   &--overlay {
     margin: 0;
     padding: 0;
     border: 0;
     font: inherit;
   }
+
   &--content {
     width: 400px;
     float: none;

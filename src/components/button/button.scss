@@ -16,6 +16,7 @@
   background: #3369F3;
   border-color: #3369F3;
   border-radius: 8px;
+
   &--file {
     background-image: url("../../../static/img/file.svg");
     width: 30px;
@@ -23,6 +24,7 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
+
   &--send {
     background-image: url("../../../static/img/send.svg");
     width: 30px;
@@ -30,10 +32,12 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
+
   &--while {
     background-color: white;
     border: 0 solid white;
   }
+
   &--clear {
     background-color: transparent;
     color: #4a90e2;

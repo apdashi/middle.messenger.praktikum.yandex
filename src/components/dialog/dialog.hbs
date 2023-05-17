@@ -1,0 +1,23 @@
+<div
+        class="dialog"
+>
+    {{#if messages}}
+        <div class="dialog--panel">
+            {{> avatar src=avatar}}
+            {{> text modifier="text--bold" title=name}}
+            <span class="dialog--panel-settings"></span>
+        </div>
+        <div class="dialog--messages">
+            {{#each messages}}
+                {{> message }}
+            {{/each}}
+        </div>
+        <div class="dialog--new-message">
+            {{> button id="file" iconModifier="button--file" modifier="button--while" }}
+            {{> input placeholder="Сообщение" name="message"}}
+            {{> button iconModifier="button--send" modifier="button--while"}}
+        </div>
+    {{else}}
+        {{>text title='Выберите чат чтобы отправить сообщение' modifier="text--gray text--align-center"}}
+    {{/if}}
+</div>

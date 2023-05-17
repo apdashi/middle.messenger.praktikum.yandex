@@ -1,0 +1,29 @@
+<div
+        class="chat-list"
+>
+    <div class="chat-list__profile">
+        <a href="/profile.html">
+            Профиль
+            <span class="chat-list__profile-arrow"></span>
+        </a>
+    </div>
+    {{> input this.input}}
+    {{#each this.list}}
+        <div class="chat-list__item">
+            {{> avatar modifier="chat-list__item--avatar" src=avatar}}
+            <div class="chat-list__item--first">
+                <span class="chat-list__item--name">{{name}}</span>
+                <span class="chat-list__item--time">{{lastTime}}</span>
+            </div>
+            <div class="chat-list__item--second">
+                {{#if isYou}}
+                    Вы:
+                {{/if}}
+                {{lastMessage}}
+                {{#if countNewMessage}}
+                    <span class="chat-list__item--new-message">{{countNewMessage}}</span>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+</div>

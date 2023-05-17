@@ -1,0 +1,12 @@
+<div class="message {{modifierMessage}}">
+    {{text}}
+    {{#if img}}
+        <img src={{img}} alt="">
+    {{/if}}
+    <div class="message--time">
+        {{#if isRead}}
+            <span class="message--read"></span>
+        {{/if}}
+        {{time}}
+    </div>
+</div>

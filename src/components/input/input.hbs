@@ -1,8 +1,8 @@
 <div
-        class="input {{globalModifier}}"
+        class="{{styles.input}} {{globalModifier}}"
 >
     <label
-            for="{{name}}"
+            for="{{id}}"
             class="input__label {{labelModifier}}"
     >
         {{label}}
@@ -12,7 +12,7 @@
             type="{{type}}"
             placeholder="{{placeholder}}"
             name="{{name}}"
-            id="{{name}}"
+            id="{{id}}"
             value="{{value}}"
     />
     {{#if hasError}}

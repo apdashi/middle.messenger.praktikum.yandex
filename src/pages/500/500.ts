@@ -5,7 +5,7 @@ import '../../components/wrapper/wrapper';
 import "./500.scss";
 
 const root = document.getElementById("root");
-root.innerHTML = compiledTemplate({
+root!.innerHTML = compiledTemplate({
     header: {
         modifier: 'text--title-h1 h-mb--20',
         title: 500,

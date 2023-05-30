@@ -22,12 +22,11 @@ export const data = {
             title: "Вход",
             modifier: "enter__form--button",
         },
-        altLink: {
-            link: "/signin.html",
-            text: "Ещё не зарегистрированы?",
+        link: {
+            to: "/signin.html",
+            title: "Ещё не зарегистрированы?",
             modifier: "enter__form--link",
         },
-        modifier: 'h-text--center',
-        redirectUrl: '/chat.html',
     },
+    modifier: 'h-text--center',
 };

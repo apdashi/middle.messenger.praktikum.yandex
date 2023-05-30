@@ -1,10 +1,25 @@
-// @ts-ignore
-import {data} from './data';
-import compiledTemplate from "./login.hbs";
-import '../../layout/base-center/base-center';
-import "./login.scss";
-import "../../components/enter-form/enter-form";
-import "../../components/wrapper/wrapper"
+import Block from '../../utils/Block';
+import { EnterForm } from "../../components/enter-form/enter-form";
+import template from "./login.hbs";
+import {data} from "./data"
 
-const root = document.getElementById("root");
-root!.innerHTML = compiledTemplate(data);
+export class PageLogin extends Block {
+    constructor() {
+        super({});
+    }
+
+    init() {
+        this.children.form = new EnterForm(data.form);
+
+    }
+
+    render() {
+        return this.compile(template, { modifier: data.modifier, ...this.props });
+    }
+}
+window.addEventListener("DOMContentLoaded", () => {
+    const pageLogin = new PageLogin();
+    const root = document.getElementById("root") as HTMLElement;
+    root.append(pageLogin.getContent()!);
+    pageLogin.dispatchComponentDidMount();
+})

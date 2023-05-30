@@ -7,10 +7,12 @@
             <span class="chat-list__profile-arrow"></span>
         </a>
     </div>
-    {{> input this.input}}
+    {{{input}}}
     {{#each this.list}}
         <div class="chat-list__item">
-            {{> avatar modifier="chat-list__item--avatar" src=avatar}}
+            {{#with (lookup ../avatars @index)}}
+                {{{this}}}
+            {{/with}}
             <div class="chat-list__item--first">
                 <span class="chat-list__item--name">{{name}}</span>
                 <span class="chat-list__item--time">{{lastTime}}</span>
@@ -21,7 +23,7 @@
                 {{/if}}
                 {{lastMessage}}
                 {{#if countNewMessage}}
-                    <span class="chat-list__item--new-message">{{countNewMessage}}</span>
+                    <span class="chat-list__item--new-message}">{{countNewMessage}}</span>
                 {{/if}}
             </div>
         </div>

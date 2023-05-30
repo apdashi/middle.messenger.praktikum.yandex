@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import compiledTemplate from "./text.hbs";
-import styles from "./text.scss";
+import "./text.scss";
 
 interface TextProps {
     title?: string;
@@ -13,6 +13,8 @@ export class Text extends Block<TextProps> {
     }
 
     render() {
-        return this.compile(compiledTemplate, { ...this.props, styles });
+        return this.compile(compiledTemplate, {
+            ...this.props,
+        });
     }
 }

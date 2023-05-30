@@ -1,10 +1,8 @@
-<button class="profile--return"></button>
-{{#> layoutBaseCenter }}
-    {{#*inline "center"}}
-        {{#> wrapper}}
-            {{#*inline "content"}}
-                {{> profileForm this}}
-            {{/inline}}
-        {{/wrapper}}
-    {{/inline}}
-{{/layoutBaseCenter}}
+<div>
+    <button class="profile--return"></button>
+    <div class="layout-base__center">
+        <div class="wrapper {{modifier}}">
+            {{{form}}}
+        </div>
+    </div>
+</div>

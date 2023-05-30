@@ -14,15 +14,15 @@ export class Page404 extends Block {
             modifier: 'text--title-h1 h-mb--20',
         });
 
-        // this.children.body = new Text({
-        //     title: 'Не туда попали',
-        //     modifier: 'text--title-h2 h-mb--40',
-        // });
-        //
-        // this.children.link = new Link({
-        //     title: 'Назад к чатам',
-        //     to: '/chat.html'
-        // });
+        this.children.body = new Text({
+            title: 'Не туда попали',
+            modifier: 'text--title-h2 h-mb--40',
+        });
+
+        this.children.link = new Link({
+            title: 'Назад к чатам',
+            to: '/chat.html'
+        });
     }
 
     render() {

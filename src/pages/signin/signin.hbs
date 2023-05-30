@@ -1,9 +1,7 @@
-{{#> layoutBaseCenter }}
-    {{#*inline "center"}}
-        {{#> wrapper}}
-            {{#*inline "content"}}
-                {{> enterForm this.form}}
-            {{/inline}}
-        {{/wrapper}}
-    {{/inline}}
-{{/layoutBaseCenter}}
+<div class="layout-base">
+    <div class="layout-base__center">
+        <div class="wrapper {{modifier}}">
+            {{{form}}}
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import compiledTemplate from "./input.hbs";
-import styles from "./input.scss";
+import "./input.scss";
 import { nanoid } from "nanoid";
 
 interface InputProps {
@@ -28,6 +28,8 @@ export class Input extends Block<InputProps> {
     }
 
     render() {
-        return this.compile(compiledTemplate, { ...this.props, styles });
+        return this.compile(compiledTemplate, {
+            ...this.props,
+        });
     }
 }

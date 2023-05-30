@@ -169,7 +169,6 @@ class Block<P extends Record<string, any> = any> {
                 replaceStub(component);
             }
         });
-        console.log(temp.content)
         return temp.content;
     }
 

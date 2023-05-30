@@ -1,5 +1,5 @@
-<div class="message {{modifierMessage}}">
-    {{text}}
+<div class="message {{#if isYou}}message--you{{/if}}">
+    {{{text}}}
     {{#if img}}
         <img src={{img}} alt="">
     {{/if}}

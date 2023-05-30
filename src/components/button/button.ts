@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import compiledTemplate from "./button.hbs";
-import styles from "./button.scss";
+import "./button.scss";
 
 interface ButtonProps {
     type?: string;
@@ -18,6 +18,8 @@ export class Button extends Block<ButtonProps> {
     }
 
     render() {
-        return this.compile(compiledTemplate, { ...this.props, styles });
+        return this.compile(compiledTemplate, {
+            ...this.props,
+        });
     }
 }

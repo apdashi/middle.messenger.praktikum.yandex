@@ -61,11 +61,11 @@ export const data = {
             title: "Зарегистрироваться",
             modifier: "h-mb--20",
         },
-        altLink: {
-            link: "/login.html",
-            text: "Войти",
+        link: {
+            to: "/login.html",
+            title: "Войти",
             modifier: "enter__form--link",
         },
-        modifier: 'h-text--center',
     },
+    modifier: 'h-text--center',
 };

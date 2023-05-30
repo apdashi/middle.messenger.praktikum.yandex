@@ -1,22 +1,37 @@
-import compiledTemplate from "./500.hbs";
-import '../../layout/base-center/base-center';
-import '../../components/text/text';
-import '../../components/wrapper/wrapper';
-import "./500.scss";
+import Block from '../../utils/Block';
+import { Link } from "../../components/link/link";
+import { Text } from "../../components/text/text";
+import template from "./500.hbs";
 
-const root = document.getElementById("root");
-root!.innerHTML = compiledTemplate({
-    header: {
-        modifier: 'text--title-h1 h-mb--20',
-        title: 500,
-    },
-    body: {
-        modifier: 'text--title-h2 h-mb--40',
-        title: 'Мы уже фиксим',
-    },
-    link: {
-        title: 'Назад к чатам',
-        href: '/chat.html'
-    },
-    modifier: 'h-text--center'
-});
+export class Page500 extends Block {
+    constructor() {
+        super({});
+    }
+
+    init() {
+        this.children.header = new Text({
+            title: '500',
+            modifier: 'text--title-h1 h-mb--20',
+        });
+
+        this.children.body = new Text({
+            title: 'Мы уже фиксим',
+            modifier: 'text--title-h2 h-mb--40',
+        });
+
+        this.children.link = new Link({
+            title: 'Назад к чатам',
+            to: '/chat.html'
+        });
+    }
+
+    render() {
+        return this.compile(template, { modifier: 'h-text--center', ...this.props });
+    }
+}
+window.addEventListener("DOMContentLoaded", () => {
+    const page500 = new Page500();
+    const root = document.getElementById("root") as HTMLElement;
+    root.append(page500.getContent()!);
+    page500.dispatchComponentDidMount();
+})

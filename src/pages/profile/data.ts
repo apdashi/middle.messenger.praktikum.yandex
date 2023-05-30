@@ -1,9 +1,8 @@
-import Avatar from '../../../static/img/avatar.png'
 
 export const data = {
     header: {
-        avatar: Avatar,
-        name: "Иван",
+        avatar: './',
+        title: "Иван",
     },
     footer: [{
         title: 'Изменить данные',

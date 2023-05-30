@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import compiledTemplate from "./avatar.hbs";
-import styles from "./avatar.scss";
+import "./avatar.scss";
 
 interface AvatarProps {
     src?: string;
@@ -14,6 +14,6 @@ export class Avatar extends Block<AvatarProps> {
     }
 
     render() {
-        return this.compile(compiledTemplate, { ...this.props, styles });
+        return this.compile(compiledTemplate, { ...this.props });
     }
 }

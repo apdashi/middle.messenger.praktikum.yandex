@@ -1,60 +1,27 @@
-import compiledTemplate from "./chat.hbs";
-import '../../layout/base-left/base-left';
+import Block from '../../utils/Block';
+import template from "./chat.hbs";
+import { data } from "./data"
 import "./chat.scss";
-import '../../components/chat-list/chat-list'
-import '../../components/dialog/dialog'
-import addFile from '../../components/add-file/add-file.hbs'
-import Img from '../../../static/img/message.png'
-import Avatar from '../../../static/img/avatar.png'
-import "../../components/modal/modal"
-import "../../components/add-file/add-file.scss"
+import { ChatList } from '../../components/chat-list/chat-list'
+import { Dialog } from '../../components/dialog/dialog'
 
-const root = document.getElementById("root");
-root.innerHTML = compiledTemplate({
-    chat: {
-        input: {
-            name: 'search',
-            type: 'text',
-            placeholder: 'Поиск',
-        },
-        list: [{
-            avatar: Avatar,
-            name: 'Андрей',
-            lastMessage: 'Сообщение 1',
-            countNewMessage: 4,
-            isYou: false,
-            lastTime: '10:49',
-        }, {
-            name: 'Киноклуб',
-            lastMessage: 'Стикер',
-            countNewMessage: 0,
-            isYou: true,
-            lastTime: '11:29',
-        }],
-    },
-    dialog: {
-        name: 'Вадим',
-        avatar: Avatar,
-        messages: [{
-            text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.\n' +
-                '\n' +
-                'Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
-            time: '11:56',
-        }, {
-            img: Img,
-            time: '11:56',
-        }, {
-            isYou: true,
-            text: 'Круто!',
-            time: '12:00',
-            isRead: true,
-        }],
+export class PageChat extends Block {
+    constructor() {
+        super({});
     }
-});
 
-const file = document.getElementById('file');
-file.onclick = () => {
-    const modal = document.getElementById('modal');
-    modal.innerHTML = addFile();
-    document.body.setAttribute('class', 'body--modal');
+    init() {
+        this.children.chatList = new ChatList(data.chat)
+        this.children.dialog = new Dialog(data.dialog)
+    }
+
+    render() {
+        return this.compile(template, { ...this.props });
+    }
 }
+window.addEventListener("DOMContentLoaded", () => {
+    const pageChat = new PageChat();
+    const root = document.getElementById("root") as HTMLElement;
+    root.append(pageChat.getContent()!);
+    pageChat.dispatchComponentDidMount();
+})

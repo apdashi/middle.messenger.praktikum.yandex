@@ -45,7 +45,7 @@ export class ProfileForm extends Block<ProfileFormProps> {
                             click: () => {
                                 this.children.fieldsData.map(field => {
                                     field.setProps({
-                                        hasError: validateField(field.props.value, field.props.name)
+                                        hasError: !validateField(field.props.value, field.props.name)
                                     })
                                 })
                             }

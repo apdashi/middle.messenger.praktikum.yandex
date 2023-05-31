@@ -29,7 +29,7 @@ export class EnterForm extends Block<EnterFormProps> {
                 click: () => {
                     (this.children.fields as Block[]).map(field => {
                         field.setProps({
-                            hasError: validateField(field.props.value, field.props.name)
+                            hasError: !validateField(field.props.value, field.props.name)
                         })
                     })
                 }

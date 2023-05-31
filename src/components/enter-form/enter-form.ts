@@ -5,6 +5,7 @@ import {Text} from "../text/text";
 import {Button} from "../button/button";
 import {Input} from "../input/input";
 import {Link} from "../link/link";
+import {validateField} from "../../utils/validate";
 
 interface EnterFormProps {
     button: any,

@@ -56,9 +56,9 @@ class Block<P extends Record<string, any> = any> {
 
     _addEvents() {
         const {events = {}} = this.props as P & { events: Record<string, () => void> };
-
+        const eventElement = this._element?.querySelector(`[data-event="true"]`);
         Object.keys(events).forEach(eventName => {
-            this._element?.addEventListener(eventName, events[eventName]);
+            (eventElement || this._element)?.addEventListener(eventName, events[eventName]);
         });
     }
 
@@ -108,7 +108,7 @@ class Block<P extends Record<string, any> = any> {
     }
 
     setProps = (nextProps: Partial<P>) => {
-        if (!nextProps) {
+        if (!nextProps || Object.keys(nextProps).every(key => this.props[key] === nextProps[key])){
             return;
         }
 

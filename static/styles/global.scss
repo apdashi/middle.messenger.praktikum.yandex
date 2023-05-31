@@ -21,3 +21,41 @@
 body .body--modal {
   overflow: hidden;
 }
+.wrapper {
+  display: block;
+}
+.layout-base {
+  width: auto;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  top: 0;
+  left: 0;
+  &__left {
+    min-height: 1px;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 20%;
+    margin-left: 0;
+    margin-right: 1.5%;
+  }
+  &__right {
+    float: right;
+    clear: none;
+    text-align: inherit;
+    width: 78%;
+    margin-left: 0;
+    margin-right: 1.5%;
+  }
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }
+}

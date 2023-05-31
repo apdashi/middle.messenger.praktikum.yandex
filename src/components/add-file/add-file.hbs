@@ -2,10 +2,10 @@
     {{#> modal }}
         {{#*inline "content"}}
             <div class="add-file">
-                {{> text title="Загрузите файл" modifier="h-mb--20"}}
-                {{> button modifier="button--clear h-mb--20" title="Выбрать файл на компьютере"}}
-                {{> button modifier="h-mb--40" title="Поменять"}}
-                {{> text title="Нужно выбрать файл"}}
+                {{{header}}}
+                {{{buttonChoose}}}
+                {{{buttonChange}}}
+                {{{footer}}}
             </div>
         {{/inline}}
     {{/modal}}

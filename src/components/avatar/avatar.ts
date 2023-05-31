@@ -1,19 +1,19 @@
-import Block from "../../utils/Block";
-import compiledTemplate from "./avatar.hbs";
-import "./avatar.scss";
+import Block from '../../utils/Block'
+import compiledTemplate from './avatar.hbs'
+import './avatar.scss'
 
 interface AvatarProps {
-    src?: string;
-    modifier?: string,
-    alt?: string,
+    src?: string
+    modifier?: string
+    alt?: string
 }
 
 export class Avatar extends Block<AvatarProps> {
-    constructor(props: AvatarProps) {
-        super(props);
+    constructor (props: AvatarProps) {
+        super(props)
     }
 
-    render() {
-        return this.compile(compiledTemplate, { ...this.props });
+    render (): DocumentFragment {
+        return this.compile(compiledTemplate, { ...this.props })
     }
 }

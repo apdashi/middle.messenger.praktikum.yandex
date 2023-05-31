@@ -16,3 +16,4 @@ Netlify [ссылка](https://papaya-lily-56199e.netlify.app/)
 - `npm run start` — сборка стабильной версии и запуск node.js сервера на 3000 порту.
 - `npm run lint` — запуск eslint.
 - `npm run lint-fix` — запуск eslint -fix. 
+- `npm run stylelint` - запуск stylelint

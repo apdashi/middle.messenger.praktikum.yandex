@@ -27,8 +27,10 @@
     },
     "dependencies": {
         "@parcel/config-default": "^2.9.1",
+        "eslint": "^8.41.0",
         "handlebars": "^4.7.7",
         "nanoid": "^4.0.2",
+        "stylelint": "^15.6.2",
         "ts-node": "^10.9.1"
     }
 }

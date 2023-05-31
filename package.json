@@ -23,6 +23,7 @@
         "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
         "@parcel/config-default": "^2.9.1",
         "@parcel/css": "^1.14.0",
+        "@parcel/css-linux-x64-musl": "^1.13.1",
         "@parcel/transformer-css": "^2.9.1",
         "@parcel/transformer-sass": "^2.9.1",
         "@typescript-eslint/eslint-plugin": "^5.59.8",

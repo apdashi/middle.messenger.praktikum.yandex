@@ -21,6 +21,9 @@
     },
     "devDependencies": {
         "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
+        "@parcel/config-default": "2.8.3",
+        "@parcel/css": "^1.14.0",
+        "@parcel/transformer-css": "2.8.3",
         "@parcel/transformer-sass": "^2.8.3",
         "@typescript-eslint/eslint-plugin": "^5.59.8",
         "@typescript-eslint/parser": "^5.59.8",
@@ -36,9 +39,7 @@
         "parcel-transformer-hbs": "^1.0.4",
         "stylelint": "^15.6.2",
         "stylelint-config-standard": "^33.0.0",
-        "typescript": "^5.0.4",
-        "@parcel/config-default": "2.8.3",
-        "@parcel/transformer-css": "2.8.3"
+        "typescript": "^5.0.4"
     },
     "dependencies": {
         "handlebars": "^4.7.7",

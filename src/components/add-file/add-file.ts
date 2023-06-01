@@ -5,7 +5,7 @@ import '../modal/modal'
 import { Button } from '../button/button'
 import { Text } from '../text/text'
 
-export class AddFile extends Block<AddFileProps> {
+export class AddFile extends Block {
     init (): void {
         this.children.header = new Text({ title: 'Загрузите файл', modifier: 'h-mb--20' })
         this.children.buttonChoose = new Button({

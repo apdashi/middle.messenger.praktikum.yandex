@@ -7,7 +7,7 @@ interface ButtonProps {
     title: string
     modifier?: string
     iconModifier?: string
-    events: {
+    events?: {
         click: () => void
     }
 }

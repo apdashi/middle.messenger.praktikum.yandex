@@ -16,6 +16,7 @@ module.exports = {
         '@typescript-eslint/indent': ['error', 4, { SwitchCase: 1 }],
         '@typescript-eslint/no-useless-constructor': 0,
         '@typescript-eslint/no-non-null-assertion': 0,
-        'array-callback-return': 0
+        'array-callback-return': 0,
+        'eol-last': ['error', 'always']
     }
 }

@@ -9,12 +9,12 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
-  color: #fff;
+  color: var(--color-white);
   text-align: center;
   cursor: pointer;
   margin: 0;
-  background: #3369F3;
-  border-color: #3369F3;
+  background: var(--color-blue);
+  border-color: var(--color-blue);
   border-radius: 8px;
 
   &--file {
@@ -34,13 +34,13 @@
   }
 
   &--while {
-    background-color: white;
-    border: 0 solid white;
+    background-color: var(--color-white);
+    border: 0 solid var(--color-white);
   }
 
   &--clear {
     background-color: transparent;
-    color: #4a90e2;
+    color: var(--color-light-blue);
     font-weight: normal;
     border: none;
   }

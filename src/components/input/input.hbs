@@ -2,7 +2,7 @@
         class="input {{globalModifier}}"
 >
     <label
-            for="{{name}}"
+            for="{{id}}"
             class="input__label {{labelModifier}}"
     >
         {{label}}
@@ -12,7 +12,8 @@
             type="{{type}}"
             placeholder="{{placeholder}}"
             name="{{name}}"
-            id="{{name}}"
+            id="{{id}}"
+            data-event="true"
             value="{{value}}"
     />
     {{#if hasError}}

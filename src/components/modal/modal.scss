@@ -1,14 +1,11 @@
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 141;
   outline: none;
   overflow: hidden;
   transition: all 0.35s;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--color-black);
 
   &--overlay {
     margin: 0;
@@ -23,7 +20,7 @@
     display: block;
     padding: 2rem 2.5rem 2.5rem;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: var(--color-white);
     min-height: 300px;
     opacity: 1;
     z-index: 130;

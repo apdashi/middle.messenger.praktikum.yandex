@@ -1,9 +1,12 @@
-{{#> layoutBaseLeft }}
-    {{#*inline "left"}}
-        {{> chatList this.chat}}
-    {{/inline}}
-
-    {{#*inline "right"}}
-        {{> dialog this.dialog}}
-    {{/inline}}
-{{/layoutBaseLeft}}
+<div class="layout-base">
+    <div class="layout-base__left">
+        <div class="wrapper {{modifier}}">
+            {{{chatList}}}
+        </div>
+    </div>
+    <div class="layout-base__right">
+        <div class="wrapper {{modifier}}">
+            {{{dialog}}}
+        </div>
+    </div>
+</div>

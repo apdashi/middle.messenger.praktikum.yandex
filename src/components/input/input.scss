@@ -1,5 +1,5 @@
 .input {
-  color: #202020;
+  color: var(--color-black);
   position: relative;
   top: 0;
   left: 0;
@@ -15,8 +15,9 @@
     margin-left: 0.125rem;
     font-size: 9px;
     line-height: 9px;
-    color: #999999;
+    color: var(--color-light-grey);
     text-align: left;
+
     &--hide {
       position: absolute;
       width: 1px;
@@ -35,9 +36,10 @@
     left: 0;
     font-family: inherit;
     width: 100%;
-    border: 0 solid #3369F3;
-    border-bottom: 1px solid #3369F3;
+    border: 0 solid var(--color-blue);
+    border-bottom: 1px solid var(--color-blue);
     font-size: 16px;
+
     &--no-border {
       border: none;
     }
@@ -48,11 +50,11 @@
     margin-top: 2px;
     margin-bottom: 10px;
     display: block;
-    color: #6d6d6d;
+    color: var(--color-grey);
     font-size: 10px;
   }
 }
 
 .has-error {
-  color: red;
+  color: var(--color-red);
 }

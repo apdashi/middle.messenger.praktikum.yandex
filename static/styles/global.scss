@@ -1,3 +1,17 @@
+:root {
+  --color-light-grey: #999;
+  --color-white: #fff;
+  --color-black: #202020;
+  --color-blue: #3369F3;
+  --color-grey: #6d6d6d;
+  --color-red: #F00;
+  --color-light-blue: #4a90e2;
+  --color-brown: #00000026;
+  --color-border-grey: #d3d3d3;
+  --color-grey-white: #F8F8F8;
+  --color-lilac: #E4EDFD;
+}
+
 .h-mb--10 {
   margin-bottom: 10px;
 }
@@ -20,4 +34,47 @@
 
 body .body--modal {
   overflow: hidden;
+}
+
+.wrapper {
+  display: block;
+}
+
+.layout-base {
+  width: auto;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  top: 0;
+  left: 0;
+
+  &__left {
+    min-height: 1px;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 20%;
+    margin-left: 0;
+    margin-right: 1.5%;
+  }
+
+  &__right {
+    float: right;
+    clear: none;
+    text-align: inherit;
+    width: 78%;
+    margin-left: 0;
+    margin-right: 1.5%;
+  }
+
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }
 }

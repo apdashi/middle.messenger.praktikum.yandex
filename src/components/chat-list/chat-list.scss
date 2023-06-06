@@ -1,6 +1,6 @@
 .chat-list {
-  background-color: #FBFBFB;
-  border-right: 1px solid #EAEAEA;
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-border-grey);
   height: 100%;
   min-width: 350px;
   position: fixed;
@@ -8,9 +8,9 @@
 
   &__item {
     min-height: 70px;
-    border-top: 1px solid #EAEAEA;
+    border-top: 1px solid var(--color-white);
     cursor: pointer;
-    margin: 10px 5px 0 5px;
+    margin: 10px 5px 0;
 
     &--first {
       margin-top: 5px;
@@ -22,7 +22,7 @@
       font-weight: 600;
       font-size: 13px;
       line-height: 13px;
-      color: #1E1E1E;
+      color: var(--color-black);
     }
 
     &--time {
@@ -31,7 +31,7 @@
       font-weight: 500;
       font-size: 9px;
       line-height: 13px;
-      color: #999999;
+      color: var(--color-light-grey);
     }
 
     &--avatar {
@@ -45,19 +45,19 @@
       font-weight: 500;
       font-size: 12px;
       line-height: 15px;
-      color: #999999;
+      color: var(--color-light-grey);
     }
 
     &--new-message {
       margin-left: auto;
       margin-right: 0;
-      background-color: #3369F3;
-      border: 1px solid #3369F3;
+      background-color: var(--color-blue);
+      border: 1px solid var(--color-blue);
       border-radius: 50%;
       width: 2em;
       height: 2em;
       text-align: center;
-      color: white;
+      color: var(--color-white);
       font-size: 11px;
       font-weight: 500;
       line-height: 20px;
@@ -69,8 +69,8 @@
     margin-right: 10px;
 
     &-arrow {
-      border-top: 2px solid #4a70e2;
-      border-right: 2px solid #4a70e2;
+      border-top: 2px solid var(--color-light-blue);
+      border-right: 2px solid var(--color-light-blue);
       transform: rotate(45deg);
       width: 5px;
       height: 5px;

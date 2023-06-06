@@ -1,11 +1,9 @@
-{{#> layoutBaseCenter }}
-    {{#*inline "center"}}
-        {{#> wrapper}}
-            {{#*inline "content"}}
-                {{> text this.header}}
-                {{> text this.body}}
-                <a href="{{this.link.href}}">{{this.link.title}}</a>
-            {{/inline}}
-        {{/wrapper}}
-    {{/inline}}
-{{/layoutBaseCenter}}
+<div class="layout-base">
+    <div class="layout-base__center">
+        <div class="wrapper {{modifier}}">
+            {{{header}}}
+            {{{body}}}
+            {{{link}}}
+        </div>
+    </div>
+</div>

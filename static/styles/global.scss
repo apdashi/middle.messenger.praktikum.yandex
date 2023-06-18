@@ -68,7 +68,7 @@ body .body--modal {
     width: 78%;
     margin-left: 0;
     margin-right: 1.5%;
-    right: 0px;
+    right: 0;
     position: absolute;
   }
 
@@ -80,6 +80,7 @@ body .body--modal {
     transform: translate(-50%, -50%)
   }
 }
+
 .modal {
   position: fixed;
   inset: 0;

@@ -109,6 +109,7 @@ class Block<P extends Record<string, any> = any> {
 
     private _componentDidUpdate (oldProps: P, newProps: P): void {
         if (this.componentDidUpdate(oldProps, newProps)) {
+            console.log(newProps)
             this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
         }
     }

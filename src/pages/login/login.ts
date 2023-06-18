@@ -16,10 +16,3 @@ export class PageLogin extends Block {
         return this.compile(template, { modifier: data.modifier, ...this.props })
     }
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-    const pageLogin = new PageLogin()
-    const root = document.getElementById('root')
-    root.append(pageLogin.getContent()!)
-    pageLogin.dispatchComponentDidMount()
-})

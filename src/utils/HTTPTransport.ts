@@ -78,14 +78,15 @@ export default class HTTPTransport {
                 throw new Error('timeout')
             }
 
-            xhr.setRequestHeader('Content-Type', 'application/json')
-
             xhr.withCredentials = true
             xhr.responseType = 'json'
 
             if (method === Method.Get || !(data)) {
                 xhr.send()
+            } else if (data instanceof FormData) {
+                xhr.send(data)
             } else {
+                xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8')
                 xhr.send(JSON.stringify(data))
             }
         })

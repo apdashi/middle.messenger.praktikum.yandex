@@ -1,5 +1,6 @@
 export const data = {
     form: {
+        action: 'signin',
         header: {
             title: 'Вход',
             modifier: 'text--title-h1'
@@ -23,7 +24,7 @@ export const data = {
             modifier: 'enter__form--button'
         },
         link: {
-            to: '/signin.html',
+            to: '/sign-up',
             title: 'Ещё не зарегистрированы?',
             modifier: 'enter__form--link'
         }

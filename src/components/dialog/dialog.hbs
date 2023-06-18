@@ -1,13 +1,18 @@
 <div
         class="dialog"
 >
-    {{#if messages}}
+    {{#if chat}}
         <div class="dialog--panel">
             {{{avatar}}}
             {{{text}}}
+            <div class="dialog--panel__buttons">
+                {{{addUserChat}}}
+                {{{deleteUserChat}}}
+                {{{deleteChat}}}
+            </div>
             <span class="dialog--panel-settings"></span>
         </div>
-        <div class="dialog--messages">
+        <div class="dialog--messages" id="dialogMessages">
             {{#each messages}}
                 {{{this}}}
             {{/each}}

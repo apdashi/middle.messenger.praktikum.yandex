@@ -21,6 +21,8 @@ interface InputProps {
         blur: (e: PointerEvent) => void
         focus: (e: PointerEvent) => void
     }
+    accept?: string
+    hasError?: boolean
 }
 
 export class Input extends Block<InputProps> {
@@ -28,28 +30,25 @@ export class Input extends Block<InputProps> {
         super({
             type: 'text',
             id: nanoid(6),
+            hasError: false,
             ...props,
-            events: {
-                ...(props.events || {}),
-                change: (e: PointerEvent) => {
-                    this.setProps({ value: e.target?.value || '' })
-                    props.events?.change?.(e)
-                },
-                focus: (e: PointerEvent) => {
-                    this.setProps({ hasError: !validateField(this.props.value, this.props.name) })
-                    props.events?.focus?.(e)
-                },
-                blur: (e: PointerEvent) => {
-                    this.setProps({ hasError: !validateField(this.props.value, this.props.name) })
-                    props.events?.blur?.(e)
+            events: props.type !== 'file'
+                ? {
+                    ...(props.events || {}),
+                    change: (e: PointerEvent) => {
+                        this.setProps({ value: e.target?.value || '' })
+                        props.events?.change?.(e)
+                    },
+                    blur: (e: PointerEvent) => {
+                        this.setProps({ hasError: !validateField(this.props.value, this.props.name) })
+                        props.events?.blur?.(e)
+                    }
                 }
-            }
+                : props.events
         })
     }
 
     render (): DocumentFragment {
-        return this.compile(compiledTemplate, {
-            ...this.props
-        })
+        return this.compile(compiledTemplate, this.props)
     }
 }

@@ -1,6 +1,6 @@
 ## Информация
 
-ссылка на реквесет [ссылка](https://github.com/apdashi/middle.messenger.praktikum.yandex/pull/3)
+ссылка на реквесет [ссылка](https://github.com/apdashi/middle.messenger.praktikum.yandex/pull/4)
 
 Макет в Figma(какие предложили, те и
 использовал) [ссылка](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?type=design&node-id=0-1&t=PFIPSVBRSFeCTuuu-0)

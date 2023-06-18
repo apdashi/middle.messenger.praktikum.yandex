@@ -19,10 +19,6 @@ export class PageProfileBase extends Block<PageProfileProps> {
             modifier: 'profile--return'
         })
         this.children.form = new ProfileForm({
-            footer: [],
-            footerEdit: [],
-            header: undefined,
-            isEdit: false,
             ...data,
             user: this.props.user
         })

@@ -1,15 +1,12 @@
 import BaseAPI from './base'
 
 export interface UserInfo {
-    data?: {
-        first_name: string
-        second_name: string
-        display_name: string
-        login: string
-        email: string
-        phone: string
-    }
-    file?: File
+    first_name: string
+    second_name: string
+    display_name: string
+    login: string
+    email: string
+    phone: string
 }
 
 export class UserAPI extends BaseAPI {
@@ -17,16 +14,16 @@ export class UserAPI extends BaseAPI {
         super('/user')
     }
 
-    async changeProfile (data): Promise<void> {
-        await this.http.put('/profile', data)
+    async changeProfile (data: UserInfo): Promise<void> {
+        return await this.http.put('/profile', data)
     }
 
     async changeProfileAvatar (avatar: FormData): Promise<void> {
-        await this.http.put('/profile/avatar', avatar)
+        return await this.http.put('/profile/avatar', avatar)
     }
 
-    async changePassword (data): Promise<void> {
-        await this.http.put('/password', data)
+    async changePassword (data: UserInfo): Promise<void> {
+        return await this.http.put('/password', data)
     }
 
     update = undefined

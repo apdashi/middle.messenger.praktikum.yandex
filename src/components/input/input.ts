@@ -48,6 +48,10 @@ export class Input extends Block<InputProps> {
         })
     }
 
+    public setValue (value: string): void {
+        this.setProps({ value })
+    }
+
     render (): DocumentFragment {
         return this.compile(compiledTemplate, this.props)
     }

@@ -43,7 +43,6 @@ body .body--modal {
 .layout-base {
   width: auto;
   float: none;
-  display: block;
   margin-right: auto;
   margin-left: auto;
   padding-left: 24px;
@@ -62,14 +61,12 @@ body .body--modal {
   }
 
   &__right {
-    float: right;
     clear: none;
     text-align: inherit;
-    width: 78%;
+    width: auto;
     margin-left: 0;
     margin-right: 1.5%;
     right: 0;
-    position: absolute;
   }
 
   &__center {

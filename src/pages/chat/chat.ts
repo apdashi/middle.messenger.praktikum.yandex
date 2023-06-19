@@ -6,7 +6,6 @@ import { ChatList } from '../../components/chat-list/chat-list'
 import { Dialog } from '../../components/dialog/dialog'
 import ChatsController from '../../controllers/chats'
 import { withStore } from '../../utils/Store'
-import messages from "../../controllers/messages";
 
 export class PageChatBase extends Block {
     constructor () {

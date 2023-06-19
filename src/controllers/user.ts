@@ -1,5 +1,6 @@
 import API, { type UserAPI, type UserInfo } from '../api/user'
 import store from '../utils/Store'
+import ChatController from './chats'
 
 export class User {
     private readonly api: UserAPI
@@ -30,6 +31,17 @@ export class User {
         try {
             const user = await this.api.changePassword(data)
             store.set('user', user)
+        } catch (e: any) {
+            console.error(e)
+        }
+    }
+
+    async userSearch (data: UserInfo, selectedChat: number): Promise<void> {
+        try {
+            const user = await this.api.userSearch(data)
+            if (user?.[0]) {
+                ChatController.addUserToChat(selectedChat, user[0].id)
+            }
         } catch (e: any) {
             console.error(e)
         }

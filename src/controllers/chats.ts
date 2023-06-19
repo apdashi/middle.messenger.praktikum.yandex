@@ -28,11 +28,11 @@ class Chats {
     }
 
     addUserToChat (id: number, userId: number): void {
-        void this.api.addUsers(id, [userId])
+        void this.api.addUsers(id, [userId]).then(async () => await this.getUsers(id))
     }
 
-    deleteUserToChat (id: number, userId: number): void {
-        void this.api.deleteUsers(id, [userId])
+    async deleteUserToChat (id: number, userId: number): Promise<void> {
+        await this.api.deleteUsers(id, [userId]).then(async () => await this.getUsers(id))
     }
 
     async delete (id: number): Promise<void> {
@@ -45,8 +45,14 @@ class Chats {
         return await this.api.getToken(id)
     }
 
-    selectChat (id: number): void {
+    async getUsers (id: number): Promise<void> {
+        const users = await this.api.getUsers(id)
+        store.set(`usersChat.${id}`, users)
+    }
+
+    async selectChat (id: number): Promise<void> {
         store.set('selectedChat', id)
+        await this.getUsers(id)
     }
 }
 

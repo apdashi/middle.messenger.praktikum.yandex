@@ -14,6 +14,7 @@ interface State {
     chats: ChatInfo[]
     messages: Record<number, Message[]>
     selectedChat?: number
+    usersChat: Record<number, User[]>
 }
 
 export class Store extends EventBus {

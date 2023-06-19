@@ -16,7 +16,8 @@ export class PageChatBase extends Block {
         this.children.chatList = new ChatList(this.props)
         this.children.dialog = new Dialog({
             ...data.dialog,
-            messages: this.props.messages
+            messages: this.props.messages,
+            usersChat: this.props.usersChat
         })
         void ChatsController.fetchChats()
     }
@@ -28,7 +29,8 @@ export class PageChatBase extends Block {
             messages: newProps.messages,
             chat: newProps.chats.find(c => c.id === newProps.selectedChat),
             selectedChat: newProps.selectedChat,
-            user: newProps.user
+            user: newProps.user,
+            usersChat: newProps.usersChat
         })
         return true
     }
@@ -42,7 +44,8 @@ const withUser = withStore((state) => ({
     chats: state.chats,
     user: state.user,
     selectedChat: state.selectedChat,
-    messages: state.messages?.[state.selectedChat] || []
+    messages: state.messages?.[state.selectedChat!] || [],
+    usersChat: state.usersChat?.[state.selectedChat!] || []
 }))
 
 export const PageChat = withUser(PageChatBase)

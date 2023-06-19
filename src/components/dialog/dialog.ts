@@ -7,17 +7,21 @@ import { Button } from '../button/button'
 import { Message } from '../message/message'
 import { Text } from '../text/text'
 import MessagesController from '../../controllers/messages'
-import ChatController from '../../controllers/chats'
+import { AddUserChat } from '../add-user-chat/add-user-chat'
+import { DeleteUserChat } from '../delete-user-chat/delete-user-chat'
+import { type ChatInfo } from '../../api/chats'
+import { type User } from '../api/auth'
 
 interface DialogProps {
     input: any
-    messages: any[]
+    messages?: Message[]
     notText: any
     buttonSend: any
     buttonFile: any
-    chat?: any
+    chat?: ChatInfo
     name?: string
     selectedChat?: number
+    usersChat?: User[]
 }
 
 export class Dialog extends Block<DialogProps> {
@@ -39,7 +43,7 @@ export class Dialog extends Block<DialogProps> {
         })
         this.children.buttonFile = new Button(this.props.buttonFile)
         this.children.notText = new Text(this.props.notText)
-        this.children.text = new Text({ title: this.props.chat?.title })
+        this.children.text = new Text({ title: `${this.props.chat?.title ?? ''} (${this.props.usersChat?.length ?? 0})` })
         this.children.messages = this.createFields(this.props)
         this.children.deleteChat = new Button({
             title: 'Удалить чат',
@@ -53,17 +57,26 @@ export class Dialog extends Block<DialogProps> {
             title: 'Добавить пользователя',
             events: {
                 click: () => {
-                    void ChatController.addUserToChat(this.props.selectedChat!, '1062800')
+                    this.setProps({ isAdd: true })
                 }
             }
+        })
+        this.children.modalAddUserChat = new AddUserChat({
+            close: () => this.setProps({ isAdd: false }),
+            selectedChat: this.props.selectedChat
         })
         this.children.deleteUserChat = new Button({
             title: 'Удалить пользователя',
             events: {
                 click: () => {
-                    ChatController.deleteUserToChat(this.props.selectedChat, '1062800')
+                    this.setProps({ isRemove: true })
                 }
             }
+        })
+        this.children.modalDeleteUserChat = new DeleteUserChat({
+            close: () => this.setProps({ isRemove: false }),
+            usersChat: this.props.usersChat,
+            selectedChat: this.props.selectedChat
         })
     }
 

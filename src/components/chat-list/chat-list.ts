@@ -47,7 +47,7 @@ export class ChatList extends Block<ChatListProps> {
                 ...field,
                 events: {
                     click: () => {
-                        ChatController.selectChat(field.id)
+                        void ChatController.selectChat(field.id)
                     }
                 }
             })

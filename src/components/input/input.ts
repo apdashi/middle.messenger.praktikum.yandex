@@ -12,10 +12,9 @@ interface InputProps {
     type?: string
     label?: string
     placeholder?: string
-    value: string
-    hasError: boolean
+    value?: string
     id?: string
-    events: {
+    events?: {
         click: (e: PointerEvent) => void
         change: (e: PointerEvent) => void
         blur: (e: PointerEvent) => void
@@ -34,7 +33,7 @@ export class Input extends Block<InputProps> {
             ...props,
             events: props.type !== 'file'
                 ? {
-                    ...(props.events || {}),
+                    ...(props.events ?? {}),
                     change: (e: PointerEvent) => {
                         this.setProps({ value: e.target?.value || '' })
                         props.events?.change?.(e)

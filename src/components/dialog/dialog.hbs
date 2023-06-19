@@ -7,7 +7,13 @@
             {{{text}}}
             <div class="dialog--panel__buttons">
                 {{{addUserChat}}}
+                {{#if isAdd}}
+                    {{{modalAddUserChat}}}
+                {{/if}}
                 {{{deleteUserChat}}}
+                {{#if isRemove}}
+                    {{{modalDeleteUserChat}}}
+                {{/if}}
                 {{{deleteChat}}}
             </div>
             <span class="dialog--panel-settings"></span>

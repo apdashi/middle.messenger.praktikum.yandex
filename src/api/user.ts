@@ -26,6 +26,10 @@ export class UserAPI extends BaseAPI {
         return await this.http.put('/password', data)
     }
 
+    async userSearch (data: UserInfo): Promise<void> {
+        return await this.http.post('/search', data)
+    }
+
     update = undefined
 }
 

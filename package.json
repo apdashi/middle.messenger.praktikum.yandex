@@ -4,8 +4,8 @@
     "description": "",
     "scripts": {
         "server": "node server.js",
-        "dev": "parcel static/templates/index.html --no-cache --no-source-maps",
-        "build": "parcel build static/templates/index.html",
+        "dev": "parcel src/pages/index.html --no-cache --no-source-maps",
+        "build": "parcel build src/pages/index.html",
         "start": "parcel build static/templates/*.html && node server.js",
         "lint": "eslint ./ --ext ts,js",
         "lint-fix": "eslint ./ --ext ts,js --fix",

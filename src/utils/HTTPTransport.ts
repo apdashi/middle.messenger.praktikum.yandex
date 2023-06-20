@@ -22,32 +22,35 @@ export default class HTTPTransport {
         this.endpoint = `${HTTPTransport.API_URL}${endpoint}`
     }
 
-    public get: HTTPMethod = async (path = '/') => (
-        await this.request(this.endpoint + path)
+    public get: HTTPMethod = async (path, data) => (
+        await this.request(this.endpoint + path, {
+            method: Method.Get,
+            data
+        })
     )
 
-    public post: HTTPMethod = async (path = '/', data?: unknown) => (
+    public post: HTTPMethod = async (path, data) => (
         await this.request(this.endpoint + path, {
             method: Method.Post,
             data
         })
     )
 
-    public put: HTTPMethod = async (path: string, data: unknown) => (
+    public put: HTTPMethod = async (path, data) => (
         await this.request(this.endpoint + path, {
             method: Method.Put,
             data
         })
     )
 
-    public patch: HTTPMethod = async (path: string, data: unknown) => (
+    public patch: HTTPMethod = async (path, data) => (
         await this.request(this.endpoint + path, {
             method: Method.Patch,
             data
         })
     )
 
-    public delete: HTTPMethod = async (path: string, data?: unknown) => (
+    public delete: HTTPMethod = async (path, data) => (
         await this.request(this.endpoint + path, {
             method: Method.Delete,
             data

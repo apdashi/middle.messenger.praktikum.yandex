@@ -16,7 +16,7 @@ class Chats {
     }
 
     async fetchChats (): Promise<void> {
-        const chats = await this.api.read()
+        const chats = await this.api.read() ?? []
 
         chats.map(async (chat) => {
             const token = await this.getToken(chat.id)

@@ -8,7 +8,7 @@ interface LinkProps extends PropsWithRouter {
     modifier?: string
     to?: string
     events?: {
-        click: () => void
+        click: (e: Event) => void
     }
 }
 
@@ -17,12 +17,14 @@ export class LinkComponent extends Block<LinkProps> {
         super({
             ...props,
             events: {
-                click: () => { this.navigate() }
+                click: (e) => { this.navigate(e) }
             }
         })
     }
 
-    navigate (): void {
+    navigate (e: Event): void {
+        e.stopPropagation()
+        e.preventDefault()
         this.props.router.go(this.props.to ?? '/')
     }
 

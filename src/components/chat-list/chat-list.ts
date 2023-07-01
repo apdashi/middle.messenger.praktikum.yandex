@@ -2,11 +2,14 @@ import Block from '../../utils/Block'
 import compiledTemplate from './chat-list.hbs'
 import './chat-list.scss'
 import { Input } from '../input/input'
-import { Avatar } from '../avatar/avatar'
+import { Link } from '../link/link'
+import { Button } from '../button/button'
+import ChatController from '../../controllers/chats'
+import { Chat } from '../chat/chat'
 
 interface ChatListProps {
-    list: any[]
-    input: any
+    chats: any[]
+    user: any
 }
 
 export class ChatList extends Block<ChatListProps> {
@@ -15,13 +18,39 @@ export class ChatList extends Block<ChatListProps> {
     }
 
     init (): void {
-        this.children.input = new Input(this.props.input)
-        this.children.avatars = this.createFields(this.props)
+        this.children.link = new Link({
+            title: 'Профиль',
+            to: '/settings'
+        })
+        this.children.input = new Input({
+            name: 'search',
+            type: 'text',
+            placeholder: 'Поиск',
+            value: ''
+        })
+        this.children.chats = this.createFields(this.props)
+        this.children.addInput = new Input({
+            placeholder: 'Имя чата',
+            name: 'name_chat'
+        })
+        this.children.addButton = new Button({
+            title: 'Создать',
+            events: {
+                click: async () => { await ChatController.create(this.children.addInput.props.value) }
+            }
+        })
     }
 
-    private createFields (props: ChatListProps): Avatar[] {
-        return props.list.map(field => {
-            return new Avatar({ src: field.avatar, modifier: 'chat-list__item--avatar' })
+    private createFields (props: ChatListProps): Chat[] {
+        return (props.chats ?? []).map(field => {
+            return new Chat({
+                ...field,
+                events: {
+                    click: () => {
+                        void ChatController.selectChat(field.id)
+                    }
+                }
+            })
         })
     }
 

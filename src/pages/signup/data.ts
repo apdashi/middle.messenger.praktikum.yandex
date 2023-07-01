@@ -1,5 +1,6 @@
 export const data = {
     form: {
+        action: 'signup',
         header: {
             title: 'Регистрация',
             modifier: 'text--title-h1'
@@ -53,8 +54,7 @@ export const data = {
                 placeholder: 'Пароль (ещё раз)',
                 globalModifier: 'h-mb--40',
                 label: 'Пароль (ещё раз)',
-                hasError: true,
-                value: '12312312312'
+                hasError: true
             }
         ],
         button: {
@@ -62,7 +62,7 @@ export const data = {
             modifier: 'h-mb--20'
         },
         link: {
-            to: '/login.html',
+            to: '/',
             title: 'Войти',
             modifier: 'enter__form--link'
         }

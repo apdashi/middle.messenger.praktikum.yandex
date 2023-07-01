@@ -17,7 +17,7 @@ export class Message extends Block<MessageProps> {
     }
 
     init (): void {
-        this.children.text = new Text({ title: this.props.text })
+        this.children.text = new Text({ title: this.props.content })
     }
 
     render (): DocumentFragment {

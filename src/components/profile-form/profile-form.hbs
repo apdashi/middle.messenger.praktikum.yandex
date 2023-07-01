@@ -10,20 +10,22 @@
                 {{#if ../isEdit}}
                     {{{this}}}
                 {{else}}
-                    <span class="profile__form--row-value">{{#with (lookup ../fields @index)}}{{value}}{{/with}}</span>
+                    <span class="profile__form--row-value">{{#with (lookup ../userValue @index)}}{{value}}{{/with}}</span>
                 {{/if}}
             </div>
         {{/each}}
     </div>
+    {{{changeAvatar}}}
     <div class="profile__form--footer">
         {{#if isEdit}}
-            {{#each footerEdit}}
-                {{{this}}}
-            {{/each}}
+            {{{footerEdit}}}
         {{else}}
             {{#each footer}}
                 {{{this}}}
             {{/each}}
         {{/if}}
     </div>
+    {{#if isPassword}}
+        {{{changePassword}}}
+    {{/if}}
 </div>

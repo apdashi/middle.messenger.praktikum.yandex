@@ -17,6 +17,8 @@ module.exports = {
         '@typescript-eslint/no-useless-constructor': 0,
         '@typescript-eslint/no-non-null-assertion': 0,
         'array-callback-return': 0,
-        'eol-last': ['error', 'always']
+        'eol-last': ['error', 'always'],
+        '@typescript-eslint/no-misused-promises': 0,
+        '@typescript-eslint/no-confusing-void-expression': 0
     }
 }

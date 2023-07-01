@@ -3,30 +3,37 @@ import { ProfileForm } from '../../components/profile-form/profile-form'
 import template from './profile.hbs'
 import { data } from './data'
 import './profile.scss'
+import { withStore } from '../../utils/Store'
+import { Link } from '../../components/link/link'
+import { type User } from '../../api/auth'
+interface PageProfileProps extends User {}
 
-interface PageProfileProps {
-    isEdit: boolean
-}
-
-export class PageProfile extends Block<PageProfileProps> {
+export class PageProfileBase extends Block<PageProfileProps> {
     constructor (props: PageProfileProps) {
         super(props)
     }
 
     init (): void {
-        this.children.form = new ProfileForm({ ...data, isEdit: this.props.isEdit })
+        this.children.link = new Link({
+            to: '/messenger',
+            modifier: 'profile--return'
+        })
+        this.children.form = new ProfileForm({
+            ...data,
+            user: this.props.user
+        })
+    }
+
+    protected componentDidUpdate (oldProps: PageProfileProps, newProps: PageProfileProps): boolean {
+        this.children.form = new ProfileForm({ ...data, user: newProps.user })
+        return true
     }
 
     render (): DocumentFragment {
-        return this.compile(template, { modifier: data.modifier, ...this.props })
+        return this.compile(template, { modifier: 'h-text--center', ...this.props })
     }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    const script = document.getElementById('script')
-    const isEdit = (script != null) ? script.getAttribute('data-type') === 'edit' : false
-    const pageProfile = new PageProfile({ isEdit })
-    const root = document.getElementById('root')
-    root.append(pageProfile.getContent()!)
-    pageProfile.dispatchComponentDidMount()
-})
+const withUser = withStore((state) => ({ user: state.user }))
+
+export const PageProfile = withUser(PageProfileBase)

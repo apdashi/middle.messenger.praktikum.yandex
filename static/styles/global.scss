@@ -43,7 +43,6 @@ body .body--modal {
 .layout-base {
   width: auto;
   float: none;
-  display: block;
   margin-right: auto;
   margin-left: auto;
   padding-left: 24px;
@@ -62,12 +61,12 @@ body .body--modal {
   }
 
   &__right {
-    float: right;
     clear: none;
     text-align: inherit;
-    width: 78%;
+    width: auto;
     margin-left: 0;
     margin-right: 1.5%;
+    right: 0;
   }
 
   &__center {
@@ -76,5 +75,37 @@ body .body--modal {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 141;
+  outline: none;
+  overflow: hidden;
+  transition: all 0.35s;
+  background-color: var(--color-black);
+
+  &--overlay {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+  }
+
+  &--content {
+    width: 400px;
+    float: none;
+    display: block;
+    padding: 2rem 2.5rem 2.5rem;
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    min-height: 300px;
+    opacity: 1;
+    z-index: 130;
+    border-radius: 0.1875rem;
+    position: relative;
+    margin: 8.75rem auto 3.125rem;
   }
 }

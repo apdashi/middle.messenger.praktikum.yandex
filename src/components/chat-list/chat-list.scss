@@ -2,9 +2,21 @@
   background-color: var(--color-white);
   border-right: 1px solid var(--color-border-grey);
   height: 100%;
-  min-width: 350px;
   position: fixed;
   overflow: auto;
+
+  &__header {
+    height: 10%;
+  }
+
+  &__body {
+    height: 75%;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    height: 10%;
+  }
 
   &__item {
     min-height: 70px;

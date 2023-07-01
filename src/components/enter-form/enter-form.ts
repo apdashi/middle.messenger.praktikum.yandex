@@ -6,6 +6,8 @@ import { Button } from '../button/button'
 import { Input } from '../input/input'
 import { Link } from '../link/link'
 import { validateField } from '../../utils/validate'
+import { type SignupData } from '../../api/auth'
+import AuthController from '../../controllers/auth'
 
 interface EnterFormProps {
     button: any
@@ -13,6 +15,7 @@ interface EnterFormProps {
     fields: any[]
     link: any
     modifier?: string
+    action: string
 }
 
 export class EnterForm extends Block<EnterFormProps> {
@@ -27,11 +30,18 @@ export class EnterForm extends Block<EnterFormProps> {
             ...this.props.button,
             events: {
                 click: () => {
-                    (this.children.fields as Block[]).map(field => {
+                    const data = {}
+                    const isValidForm = (this.children.fields as Block[]).every(field => {
+                        const isValid = validateField(field.props.value, field.props.name)
+                        data[field.props.name] = field.props.value
                         field.setProps({
-                            hasError: !validateField(field.props.value, field.props.name)
+                            hasError: !isValid
                         })
+                        return isValid
                     })
+                    if (isValidForm) {
+                        AuthController[this.props.action](data as SignupData)
+                    }
                 }
             }
         })

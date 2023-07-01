@@ -4,9 +4,9 @@
     "description": "",
     "scripts": {
         "server": "node server.js",
-        "dev": "parcel static/pages/index.html --no-cache --no-source-maps",
-        "build": "parcel build static/pages/index.html",
-        "start": "parcel build static/pages/*.html && node server.js",
+        "dev": "parcel static/templates/index.html --no-cache --no-source-maps",
+        "build": "parcel build static/templates/index.html",
+        "start": "parcel build static/templates/*.html && node server.js",
         "lint": "eslint ./ --ext ts,js",
         "lint-fix": "eslint ./ --ext ts,js --fix",
         "stylelint": "npx stylelint \"**/*.scss\""

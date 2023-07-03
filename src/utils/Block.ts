@@ -11,7 +11,7 @@ class Block<P extends Record<string, any> = any> {
     } as const
 
     public id = nanoid(6)
-    protected props: P
+    public props: P
     public children: Record<string, Block | Block[]>
     private readonly eventBus: () => EventBus
     private _element: HTMLElement | null = null
@@ -113,6 +113,7 @@ class Block<P extends Record<string, any> = any> {
         }
     }
 
+    // @ts-expect-error
     protected componentDidUpdate (oldProps: P, newProps: P): boolean {
         return true
     }

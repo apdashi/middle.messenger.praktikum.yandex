@@ -17,7 +17,7 @@ class Chats {
 
     async fetchChats (): Promise<void> {
         const chats = await this.api.read() ?? []
-
+        // @ts-expect-error
         chats.map(async (chat) => {
             const token = await this.getToken(chat.id)
 
@@ -58,7 +58,7 @@ class Chats {
 
 const controller = new Chats()
 
-// eslint-disable-next-line
+// @ts-expect-error
 window.chatsController = controller
 
 export default controller

@@ -27,7 +27,7 @@ export class User {
         }
     }
 
-    async changePassword (data: UserInfo): Promise<void> {
+    async changePassword (data: Record<string, string>): Promise<void> {
         try {
             const user = await this.api.changePassword(data)
             store.set('user', user)
@@ -36,7 +36,7 @@ export class User {
         }
     }
 
-    async userSearch (data: UserInfo, selectedChat: number): Promise<void> {
+    async userSearch (data: Record<string, string>, selectedChat: number): Promise<void> {
         try {
             const user = await this.api.userSearch(data)
             if (user?.[0]) {

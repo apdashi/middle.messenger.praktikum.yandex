@@ -36,6 +36,7 @@ export class ChatList extends Block<ChatListProps> {
         this.children.addButton = new Button({
             title: 'Создать',
             events: {
+                // @ts-expect-error
                 click: async () => { await ChatController.create(this.children.addInput.props.value) }
             }
         })

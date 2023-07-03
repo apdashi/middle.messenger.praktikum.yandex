@@ -6,7 +6,9 @@ import './profile.scss'
 import { withStore } from '../../utils/Store'
 import { Link } from '../../components/link/link'
 import { type User } from '../../api/auth'
-interface PageProfileProps extends User {}
+interface PageProfileProps {
+    user: User
+}
 
 export class PageProfileBase extends Block<PageProfileProps> {
     constructor (props: PageProfileProps) {
@@ -19,13 +21,24 @@ export class PageProfileBase extends Block<PageProfileProps> {
             modifier: 'profile--return'
         })
         this.children.form = new ProfileForm({
+            footer: [],
+            footerEdit: [],
+            header: undefined,
+            isEdit: false,
             ...data,
             user: this.props.user
         })
     }
 
-    protected componentDidUpdate (oldProps: PageProfileProps, newProps: PageProfileProps): boolean {
-        this.children.form = new ProfileForm({ ...data, user: newProps.user })
+    protected componentDidUpdate (_oldProps: PageProfileProps, newProps: PageProfileProps): boolean {
+        this.children.form = new ProfileForm({
+            footer: [],
+            footerEdit: [],
+            header: undefined,
+            isEdit: false,
+            ...data,
+            user: newProps.user
+        })
         return true
     }
 
@@ -36,4 +49,5 @@ export class PageProfileBase extends Block<PageProfileProps> {
 
 const withUser = withStore((state) => ({ user: state.user }))
 
+// @ts-ignore
 export const PageProfile = withUser(PageProfileBase)

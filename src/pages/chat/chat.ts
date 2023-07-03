@@ -6,10 +6,19 @@ import { ChatList } from '../../components/chat-list/chat-list'
 import { Dialog } from '../../components/dialog/dialog'
 import ChatsController from '../../controllers/chats'
 import { withStore } from '../../utils/Store'
+import { type User } from '../../api/auth'
 
-export class PageChatBase extends Block {
-    constructor () {
-        super({})
+interface ChatProps {
+    usersChat: User[]
+    chats: []
+    messages: []
+    user: User
+    selectedChat?: number
+}
+
+export class PageChatBase extends Block<ChatProps> {
+    constructor (props: ChatProps) {
+        super(props)
     }
 
     init (): void {
@@ -22,11 +31,13 @@ export class PageChatBase extends Block {
         void ChatsController.fetchChats()
     }
 
-    protected componentDidUpdate (oldProps, newProps): boolean {
+    // @ts-ignore
+    protected componentDidUpdate (_oldProps, newProps): boolean {
         this.children.chatList = new ChatList(newProps)
         this.children.dialog = new Dialog({
             ...data.dialog,
             messages: newProps.messages,
+            // @ts-ignore
             chat: newProps.chats.find(c => c.id === newProps.selectedChat),
             selectedChat: newProps.selectedChat,
             user: newProps.user,
@@ -48,4 +59,5 @@ const withUser = withStore((state) => ({
     usersChat: state.usersChat?.[state.selectedChat!] || []
 }))
 
+// @ts-ignore
 export const PageChat = withUser(PageChatBase)

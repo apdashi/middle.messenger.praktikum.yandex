@@ -9,14 +9,17 @@ import { validateField } from '../../utils/validate'
 import UserController from '../../controllers/user'
 import AuthController from '../../controllers/auth'
 import { ChangePassword } from '../change-password/change-password'
+import { type User } from '../../api/auth'
+import { type UserInfo } from '../../api/user'
 
 interface ProfileFormProps {
     header: any
     footer: any[]
     footerEdit: any[]
-    fields: any[]
+    fields: Array<Record<string, string>>
     modifier?: string
     isEdit: boolean
+    user: User
 }
 
 export class ProfileForm extends Block<ProfileFormProps> {
@@ -25,27 +28,6 @@ export class ProfileForm extends Block<ProfileFormProps> {
     }
 
     init (): void {
-        const buttons = [{
-            title: 'Изменить данные',
-            modifier: 'button--clear',
-            events: {
-                click: () => { this.setProps({ isEdit: true }) }
-            }
-        }, {
-            title: 'Изменить пароль',
-            modifier: 'button--clear',
-            events: {
-                click: () => {
-                    this.setProps({ isPassword: true })
-                }
-            }
-        }, {
-            title: 'Выйти',
-            modifier: 'button--clear',
-            events: {
-                click: async () => { await AuthController.logout() }
-            }
-        }]
         this.children.header = new Text({ title: this.props.user.display_name })
         this.children.avatar = new Avatar({
             src: this.props.user.avatar,
@@ -56,9 +38,10 @@ export class ProfileForm extends Block<ProfileFormProps> {
             title: 'Сохранить',
             events: {
                 click: () => {
-                    const data = {}
+                    const data: UserInfo = {}
                     const isValidForm = (this.children.fieldsData as Block[]).every(field => {
                         const isValid = validateField(field.props.value, field.props.name)
+                        // @ts-ignore
                         data[field.props.name] = field.props.value
                         field.setProps({
                             hasError: !isValid
@@ -71,37 +54,65 @@ export class ProfileForm extends Block<ProfileFormProps> {
                 }
             }
         })
-        this.children.footer = this.createButtons(buttons)
+        this.children.footer = this.createButtons()
         this.children.changeAvatar = new Input({
+            name: 'avatar',
             type: 'file',
             label: 'Изменить аватар',
             events: {
+                // @ts-ignore
                 click: () => { this.setProps({ isAvatar: true }) },
                 change: (e) => {
                     const d = new FormData()
+                    // @ts-ignore
                     d.append('avatar', e.currentTarget.files[0])
+                    // @ts-ignore
                     UserController.changeProfileAvatar(d).finally(() => { this.setProps({ isAvatar: false }) })
                 }
             }
         })
         this.children.changePassword = new ChangePassword({
+            // @ts-ignore
             close: () => { this.setProps({ isPassword: false }) }
         })
     }
 
     private createFields (props: ProfileFormProps): Input[] {
         return props.fields.map(field => {
-            return new Input({ ...field, value: props.user[field.name] })
+            // @ts-ignore
+            return new Input({ name: field.name, ...field, value: props.user[field.name] })
         })
     }
 
-    private createButtons (buttons: ProfileFormProps): Button[] {
+    private createButtons (): Button[] {
+        const buttons = [{
+            title: 'Изменить данные',
+            modifier: 'button--clear',
+            events: {
+                click: () => { this.setProps({ isEdit: true }) }
+            }
+        }, {
+            title: 'Изменить пароль',
+            modifier: 'button--clear',
+            events: {
+                click: () => {
+                    // @ts-ignore
+                    this.setProps({ isPassword: true })
+                }
+            }
+        }, {
+            title: 'Выйти',
+            modifier: 'button--clear',
+            events: {
+                click: async () => { await AuthController.logout() }
+            }
+        }]
         return buttons.map(field => {
             return new Button(field)
         })
     }
 
-    protected componentDidUpdate (oldProps: ProfileFormProps, newProps: ProfileFormProps): boolean {
+    protected componentDidUpdate (_oldProps: ProfileFormProps, newProps: ProfileFormProps): boolean {
         this.children.avatar = new Avatar({
             src: newProps.user.avatar,
             alt: newProps.user.display_name
@@ -112,6 +123,7 @@ export class ProfileForm extends Block<ProfileFormProps> {
     render (): DocumentFragment {
         return this.compile(compiledTemplate, {
             ...this.props,
+            // @ts-ignore
             userValue: this.props.fields.map(f => ({ value: this.props.user[f.name] }))
         })
     }

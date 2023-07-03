@@ -33,9 +33,11 @@ export class Store extends EventBus {
 
 const store = new Store()
 
+// @ts-expect-error
 window.store = store
 
 export function withStore<SP> (mapStateToProps: (state: State) => SP) {
+    // @ts-expect-error
     return function wrap<P> (Component: typeof Block<SP & P>) {
         return class WithStore extends Component {
             constructor (props: Omit<P, keyof SP>) {
@@ -47,7 +49,7 @@ export function withStore<SP> (mapStateToProps: (state: State) => SP) {
                     const stateProps = mapStateToProps(store.getState())
 
                     previousState = stateProps
-
+                    // @ts-expect-error
                     this.setProps({ ...stateProps })
                 })
             }

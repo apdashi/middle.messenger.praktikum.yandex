@@ -1,6 +1,6 @@
 import type Block from './Block'
 
-export type BlockConstructable<P = any> = new(props: P) => Block<P>
+export type BlockConstructable<P = any> = new(props: P) => Block
 
 function isEqual (lhs: string, rhs: string): boolean {
     return lhs === rhs

@@ -12,7 +12,7 @@ interface Options {
     data?: any
 }
 
-type HTTPMethod<Response = void> = (path: string, data?: unknown) => Promise<Response >
+type HTTPMethod<Response = Record<string, any>> = (path: string, data?: unknown) => Promise<Response >
 
 export default class HTTPTransport {
     static API_URL = 'https://ya-praktikum.tech/api/v2'

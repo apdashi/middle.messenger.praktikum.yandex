@@ -2,14 +2,14 @@
   --color-light-grey: #999;
   --color-white: #fff;
   --color-black: #202020;
-  --color-blue: #3369F3;
+  --color-blue: #3369f3;
   --color-grey: #6d6d6d;
-  --color-red: #F00;
+  --color-red: #f00;
   --color-light-blue: #4a90e2;
   --color-brown: #00000026;
   --color-border-grey: #d3d3d3;
-  --color-grey-white: #F8F8F8;
-  --color-lilac: #E4EDFD;
+  --color-grey-white: #f8f8f8;
+  --color-lilac: #e4edfd;
 }
 
 .h-mb--10 {
@@ -74,13 +74,12 @@ body .body--modal {
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
   }
 }
 
 .modal {
   position: fixed;
-  inset: 0;
   z-index: 141;
   outline: none;
   overflow: hidden;

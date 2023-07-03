@@ -8,7 +8,7 @@ COPY package*.json ./
 # Disable Husky https://typicode.github.io/husky/#/?id=disable-husky-in-cidocker
 RUN npm set-script prepare ""
 
-RUN npm ci --force
+RUN npm ci
 
 # Bundle app source
 COPY . .

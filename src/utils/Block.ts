@@ -126,6 +126,10 @@ class Block<P extends Record<string, any> = any> {
         Object.assign(this.props, nextProps)
     }
 
+    getProps = (key: string): any => {
+        return this.props[key]
+    }
+
     get element (): HTMLElement | null {
         return this._element
     }

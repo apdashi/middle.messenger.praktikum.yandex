@@ -57,7 +57,7 @@ export class Input extends Block<InputProps> {
     }
 
     public getValue (): string {
-        return this.props.value ?? ''
+        return this.getProps('value')
     }
 
     render (): DocumentFragment {

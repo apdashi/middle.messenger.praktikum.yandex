@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HandlebarsPlugin = require('handlebars-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
@@ -69,17 +68,6 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash:5].css'
-        }),
-        new HandlebarsPlugin({
-            entry: path.join(process.cwd(), 'src', '**', '*.hbs'),
-            output: path.join(process.cwd(), 'dist', '[name].html'),
-
-            // data: require("./app/data/project.json"),
-            // data: path.join(__dirname, "app/data/project.json"),
-
-            partials: [
-                path.join(process.cwd(), 'src', 'components', '*', '*.hbs')
-            ]
         })
     ]
 }

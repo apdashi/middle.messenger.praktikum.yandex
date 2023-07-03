@@ -10,7 +10,7 @@ module.exports = {
     entry: './src/pages/index.ts',
 
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash:5].js'
     },
     resolve: {
@@ -72,7 +72,7 @@ module.exports = {
         }),
         new HandlebarsPlugin({
             entry: path.join(process.cwd(), 'src', '**', '*.hbs'),
-            output: path.join(process.cwd(), 'build', '[name].html'),
+            output: path.join(process.cwd(), 'dist', '[name].html'),
 
             // data: require("./app/data/project.json"),
             // data: path.join(__dirname, "app/data/project.json"),

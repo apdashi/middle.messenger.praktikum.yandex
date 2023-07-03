@@ -5,6 +5,7 @@
     "rules": {
         "block-no-empty": null,
         "no-empty-source": null,
-        "selector-class-pattern": null
+        "selector-class-pattern": null,
+        "property-no-unknown": null
     }
 }

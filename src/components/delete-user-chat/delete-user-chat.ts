@@ -5,17 +5,16 @@ import ChatController from '../../controllers/chats'
 import { type User } from '../../api/auth'
 
 interface DeleteUserChatProps {
-    usersChat: User[]
+    usersChat?: User[]
     selectedChat: number
     close: () => void
 }
-// @ts-ignore
+
 export class DeleteUserChat extends Block<DeleteUserChatProps> {
     constructor (props: DeleteUserChatProps) {
         super(props)
     }
 
-    // @ts-ignore
     init (): void {
         this.children.buttonCancel = new Button({
             modifier: 'button--clear h-mb--20',
@@ -26,8 +25,8 @@ export class DeleteUserChat extends Block<DeleteUserChatProps> {
                 }
             }
         })
-        // @ts-ignore
-        this.children.usersChat = this.props.usersChat.map(user => new Button({
+
+        this.children.usersChat = (this.props.usersChat ?? []).map(user => new Button({
             title: user.display_name ?? `${user.id}`,
             events: {
                 click: () => {

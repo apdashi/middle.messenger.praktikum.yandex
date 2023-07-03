@@ -80,6 +80,7 @@ body .body--modal {
 
 .modal {
   position: fixed;
+  inset: 3px 10px 3px 10px;
   z-index: 141;
   outline: none;
   overflow: hidden;

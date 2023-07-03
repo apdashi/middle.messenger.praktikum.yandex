@@ -16,7 +16,7 @@ interface ChatProps {
     selectedChat?: number
 }
 
-export class PageChatBase extends Block<ChatProps> {
+class PageChatBase extends Block<ChatProps> {
     constructor (props: ChatProps) {
         super(props)
     }

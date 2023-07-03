@@ -19,9 +19,9 @@ export class ChangePassword extends Block<InterChangePassword> {
             events: {
                 click: () => {
                     UserController.changePassword({
-                        // @ts-ignore
+                        // @ts-expect-error
                         oldPassword: this.children.oldPassword.props.value,
-                        // @ts-ignore
+                        // @ts-expect-error
                         newPassword: this.children.newPassword.props.value
                     }).finally(() => this.props.close())
                 }

@@ -31,13 +31,13 @@ export class PageChatBase extends Block<ChatProps> {
         void ChatsController.fetchChats()
     }
 
-    // @ts-ignore
+    // @ts-expect-error
     protected componentDidUpdate (_oldProps, newProps): boolean {
         this.children.chatList = new ChatList(newProps)
         this.children.dialog = new Dialog({
             ...data.dialog,
             messages: newProps.messages,
-            // @ts-ignore
+            // @ts-expect-error
             chat: newProps.chats.find(c => c.id === newProps.selectedChat),
             selectedChat: newProps.selectedChat,
             user: newProps.user,
@@ -59,5 +59,5 @@ const withUser = withStore((state) => ({
     usersChat: state.usersChat?.[state.selectedChat!] || []
 }))
 
-// @ts-ignore
+// @ts-expect-error
 export const PageChat = withUser(PageChatBase)

@@ -14,8 +14,8 @@ export class DeleteUserChat extends Block<DeleteUserChatProps> {
         super(props)
     }
 
-    // @ts-ignore
-    // @ts-ignore
+    // @ts-expect-error
+    // @ts-expect-error
     init (): void {
         this.children.buttonCancel = new Button({
             modifier: 'button--clear h-mb--20',
@@ -26,7 +26,7 @@ export class DeleteUserChat extends Block<DeleteUserChatProps> {
                 }
             }
         })
-        // @ts-ignore
+        // @ts-expect-error
         this.children.usersChat = this.props.usersChat.map(user => new Button({
             title: user.display_name ?? `${user.id}`,
             events: {

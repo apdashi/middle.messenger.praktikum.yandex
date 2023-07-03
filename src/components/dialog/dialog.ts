@@ -37,9 +37,9 @@ export class Dialog extends Block<DialogProps> {
             ...this.props.buttonSend,
             events: {
                 click: () => {
-                    // @ts-ignore
+                    // @ts-expect-error
                     MessagesController.sendMessage(this.props.selectedChat!, this.children.input.props.value)
-                    // @ts-ignore
+                    // @ts-expect-error
                     this.children.input.setValue('')
                 }
             }
@@ -52,13 +52,13 @@ export class Dialog extends Block<DialogProps> {
             title: 'Добавить пользователя',
             events: {
                 click: () => {
-                    // @ts-ignore
+                    // @ts-expect-error
                     this.setProps({ isAdd: true })
                 }
             }
         })
         this.children.modalAddUserChat = new AddUserChat({
-            // @ts-ignore
+            // @ts-expect-error
             close: () => this.setProps({ isAdd: false }),
             selectedChat: this.props.selectedChat ?? 0
         })
@@ -66,13 +66,13 @@ export class Dialog extends Block<DialogProps> {
             title: 'Удалить пользователя',
             events: {
                 click: () => {
-                    // @ts-ignore
+                    // @ts-expect-error
                     this.setProps({ isRemove: true })
                 }
             }
         })
         this.children.modalDeleteUserChat = new DeleteUserChat({
-            // @ts-ignore
+            // @ts-expect-error
             close: () => this.setProps({ isRemove: false }),
             usersChat: this.props.usersChat,
             selectedChat: this.props.selectedChat ?? 0

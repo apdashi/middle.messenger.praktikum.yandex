@@ -49,5 +49,5 @@ export class PageProfileBase extends Block<PageProfileProps> {
 
 const withUser = withStore((state) => ({ user: state.user }))
 
-// @ts-ignore
+// @ts-expect-error
 export const PageProfile = withUser(PageProfileBase)

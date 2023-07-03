@@ -41,7 +41,7 @@ export class ProfileForm extends Block<ProfileFormProps> {
                     const data: UserInfo = {}
                     const isValidForm = (this.children.fieldsData as Block[]).every(field => {
                         const isValid = validateField(field.props.value, field.props.name)
-                        // @ts-ignore
+                        // @ts-expect-error
                         data[field.props.name] = field.props.value
                         field.setProps({
                             hasError: !isValid
@@ -60,26 +60,26 @@ export class ProfileForm extends Block<ProfileFormProps> {
             type: 'file',
             label: 'Изменить аватар',
             events: {
-                // @ts-ignore
+                // @ts-expect-error
                 click: () => { this.setProps({ isAvatar: true }) },
                 change: (e) => {
                     const d = new FormData()
-                    // @ts-ignore
+                    // @ts-expect-error
                     d.append('avatar', e.currentTarget.files[0])
-                    // @ts-ignore
+                    // @ts-expect-error
                     UserController.changeProfileAvatar(d).finally(() => { this.setProps({ isAvatar: false }) })
                 }
             }
         })
         this.children.changePassword = new ChangePassword({
-            // @ts-ignore
+            // @ts-expect-error
             close: () => { this.setProps({ isPassword: false }) }
         })
     }
 
     private createFields (props: ProfileFormProps): Input[] {
         return props.fields.map(field => {
-            // @ts-ignore
+            // @ts-expect-error
             return new Input({ name: field.name, ...field, value: props.user[field.name] })
         })
     }
@@ -96,7 +96,7 @@ export class ProfileForm extends Block<ProfileFormProps> {
             modifier: 'button--clear',
             events: {
                 click: () => {
-                    // @ts-ignore
+                    // @ts-expect-error
                     this.setProps({ isPassword: true })
                 }
             }
@@ -123,7 +123,7 @@ export class ProfileForm extends Block<ProfileFormProps> {
     render (): DocumentFragment {
         return this.compile(compiledTemplate, {
             ...this.props,
-            // @ts-ignore
+            // @ts-expect-error
             userValue: this.props.fields.map(f => ({ value: this.props.user[f.name] }))
         })
     }

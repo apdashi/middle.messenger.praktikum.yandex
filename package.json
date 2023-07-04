@@ -62,5 +62,11 @@
         "handlebars": "^4.7.7",
         "handlebars-loader": "^1.7.3",
         "nanoid": "^4.0.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm-run-all test lint:all",
+            "pre-push": "npm run other command"
+        }
     }
 }

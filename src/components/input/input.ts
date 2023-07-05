@@ -1,7 +1,6 @@
 import Block from '../../utils/Block'
 import compiledTemplate from './input.hbs'
 import './input.scss'
-import { nanoid } from 'nanoid'
 import { validateField } from '../../utils/validate'
 
 interface InputProps {
@@ -33,7 +32,7 @@ export class Input extends Block<InputProps> {
     constructor (props: InputProps) {
         super({
             type: 'text',
-            id: nanoid(6),
+            id: Math.random().toString(),
             hasError: false,
             ...props,
             events: props.type !== 'file'

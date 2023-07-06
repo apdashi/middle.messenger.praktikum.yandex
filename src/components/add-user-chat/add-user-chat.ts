@@ -8,19 +8,24 @@ interface AddUserChatProps {
     selectedChat: number
     close: () => void
 }
-export class AddUserChat extends Block {
+export class AddUserChat extends Block<AddUserChatProps> {
     constructor (props: AddUserChatProps) {
         super(props)
     }
 
     init (): void {
+        this.children.input = new Input({
+            label: 'Пользователь',
+            name: 'user'
+        })
         this.children.buttonAdd = new Button({
             modifier: 'button--clear h-mb--20',
             title: 'Добавить',
             events: {
                 click: () => {
                     UserController.userSearch({
-                        login: this.children.input.props.value
+                        // @ts-expect-error
+                        login: this.children.input.getValue()
                     }, this.props.selectedChat).finally(() => {
                         this.props.close()
                     })
@@ -35,10 +40,6 @@ export class AddUserChat extends Block {
                     this.props.close()
                 }
             }
-        })
-        this.children.input = new Input({
-            label: 'Пользователь',
-            name: 'user'
         })
     }
 

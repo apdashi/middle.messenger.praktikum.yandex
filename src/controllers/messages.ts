@@ -93,7 +93,7 @@ class Messages {
 
 const controller = new Messages()
 
-// eslint-disable-next-line
+// @ts-expect-error
 window.messagesController = controller
 
 export default controller

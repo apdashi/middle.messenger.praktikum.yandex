@@ -30,9 +30,10 @@ export class EnterForm extends Block<EnterFormProps> {
             ...this.props.button,
             events: {
                 click: () => {
-                    const data = {}
-                    const isValidForm = (this.children.fields as Block[]).every(field => {
+                    const data: SignupData = {}
+                    const isValidForm = (this.children.fields as Block[]).every((field) => {
                         const isValid = validateField(field.props.value, field.props.name)
+                        // @ts-expect-error
                         data[field.props.name] = field.props.value
                         field.setProps({
                             hasError: !isValid
@@ -40,7 +41,11 @@ export class EnterForm extends Block<EnterFormProps> {
                         return isValid
                     })
                     if (isValidForm) {
-                        AuthController[this.props.action](data as SignupData)
+                        if (this.props.action === 'signin') {
+                            void AuthController.signin(data)
+                        } else {
+                            void AuthController.signup(data)
+                        }
                     }
                 }
             }

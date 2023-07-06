@@ -1,7 +1,4 @@
 {
-    "ts-node": {
-        "files": true
-    },
     "compilerOptions": {
         "noImplicitAny": true,
         "noUnusedLocals": true,
@@ -18,5 +15,11 @@
             "ESNext",
             "DOM"
         ]
-    }
+    },
+    "ts-node": {
+        "esm": true,
+        "experimentalSpecifierResolution": "node"
+    },
+    "exclude": ["node_modules"]
+
 }

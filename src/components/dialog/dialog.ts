@@ -4,24 +4,25 @@ import './dialog.scss'
 import { Avatar } from '../avatar/avatar'
 import { Input } from '../input/input'
 import { Button } from '../button/button'
-import { Message } from '../message/message'
+import { Message, type MessageProps } from '../message/message'
 import { Text } from '../text/text'
 import MessagesController from '../../controllers/messages'
 import { AddUserChat } from '../add-user-chat/add-user-chat'
 import { DeleteUserChat } from '../delete-user-chat/delete-user-chat'
 import { type ChatInfo } from '../../api/chats'
-import { type User } from '../api/auth'
+import { type User } from '../../api/auth'
 
 interface DialogProps {
     input: any
-    messages?: Message[]
+    messages?: MessageProps[]
     notText: any
     buttonSend: any
     buttonFile: any
     chat?: ChatInfo
     name?: string
     selectedChat?: number
-    usersChat?: User[]
+    usersChat: User[]
+    user?: User
 }
 
 export class Dialog extends Block<DialogProps> {
@@ -36,7 +37,9 @@ export class Dialog extends Block<DialogProps> {
             ...this.props.buttonSend,
             events: {
                 click: () => {
+                    // @ts-expect-error
                     MessagesController.sendMessage(this.props.selectedChat!, this.children.input.props.value)
+                    // @ts-expect-error
                     this.children.input.setValue('')
                 }
             }
@@ -45,44 +48,40 @@ export class Dialog extends Block<DialogProps> {
         this.children.notText = new Text(this.props.notText)
         this.children.text = new Text({ title: `${this.props.chat?.title ?? ''} (${this.props.usersChat?.length ?? 0})` })
         this.children.messages = this.createFields(this.props)
-        this.children.deleteChat = new Button({
-            title: 'Удалить чат',
-            events: {
-                click: () => {
-                    void ChatController.delete(this.props.selectedChat!)
-                }
-            }
-        })
         this.children.addUserChat = new Button({
             title: 'Добавить пользователя',
             events: {
                 click: () => {
+                    // @ts-expect-error
                     this.setProps({ isAdd: true })
                 }
             }
         })
         this.children.modalAddUserChat = new AddUserChat({
+            // @ts-expect-error
             close: () => this.setProps({ isAdd: false }),
-            selectedChat: this.props.selectedChat
+            selectedChat: this.props.selectedChat ?? 0
         })
         this.children.deleteUserChat = new Button({
             title: 'Удалить пользователя',
             events: {
                 click: () => {
+                    // @ts-expect-error
                     this.setProps({ isRemove: true })
                 }
             }
         })
         this.children.modalDeleteUserChat = new DeleteUserChat({
+            // @ts-expect-error
             close: () => this.setProps({ isRemove: false }),
             usersChat: this.props.usersChat,
-            selectedChat: this.props.selectedChat
+            selectedChat: this.props.selectedChat ?? 0
         })
     }
 
     private createFields (props: DialogProps): Message[] {
         return (props.messages ?? []).map(field => {
-            return new Message({ ...field, is_you: field.user_id === props.user.id })
+            return new Message({ ...field, isYou: field.user_id === props?.user?.id })
         })
     }
 

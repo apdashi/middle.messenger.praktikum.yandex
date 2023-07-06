@@ -2,14 +2,15 @@ import Block from '../../utils/Block'
 import compiledTemplate from './delete-user-chat.hbs'
 import { Button } from '../button/button'
 import ChatController from '../../controllers/chats'
-import { type User } from '../api/auth'
+import { type User } from '../../api/auth'
 
 interface DeleteUserChatProps {
     usersChat?: User[]
     selectedChat: number
     close: () => void
 }
-export class DeleteUserChat extends Block {
+
+export class DeleteUserChat extends Block<DeleteUserChatProps> {
     constructor (props: DeleteUserChatProps) {
         super(props)
     }
@@ -24,8 +25,9 @@ export class DeleteUserChat extends Block {
                 }
             }
         })
+
         this.children.usersChat = (this.props.usersChat ?? []).map(user => new Button({
-            title: user.display_name || user.id,
+            title: user.display_name ?? `${user.id}`,
             events: {
                 click: () => {
                     ChatController.deleteUserToChat(this.props.selectedChat, user.id).finally(() => this.props.close())

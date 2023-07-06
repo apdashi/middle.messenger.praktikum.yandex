@@ -19,6 +19,8 @@ module.exports = {
         'array-callback-return': 0,
         'eol-last': ['error', 'always'],
         '@typescript-eslint/no-misused-promises': 0,
-        '@typescript-eslint/no-confusing-void-expression': 0
+        '@typescript-eslint/no-confusing-void-expression': 0,
+        '@typescript-eslint/ban-ts-comment': 0,
+        '@typescript-eslint/no-unused-expressions': 0
     }
 }

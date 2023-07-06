@@ -1,7 +1,6 @@
 import Block from '../../utils/Block'
 import compiledTemplate from './input.hbs'
 import './input.scss'
-import { nanoid } from 'nanoid'
 import { validateField } from '../../utils/validate'
 
 interface InputProps {
@@ -15,31 +14,36 @@ interface InputProps {
     value?: string
     id?: string
     events?: {
-        click: (e: PointerEvent) => void
-        change: (e: PointerEvent) => void
-        blur: (e: PointerEvent) => void
-        focus: (e: PointerEvent) => void
+        click?: (e: EventInterface) => void
+        change?: (e: EventInterface) => void
+        blur?: (e: EventInterface) => void
+        focus?: (e: EventInterface) => void
     }
     accept?: string
     hasError?: boolean
+}
+
+export interface EventInterface {
+    target: HTMLInputElement
+    currentTarget: HTMLInputElement
 }
 
 export class Input extends Block<InputProps> {
     constructor (props: InputProps) {
         super({
             type: 'text',
-            id: nanoid(6),
+            id: Math.random().toString(),
             hasError: false,
             ...props,
             events: props.type !== 'file'
                 ? {
                     ...(props.events ?? {}),
-                    change: (e: PointerEvent) => {
-                        this.setProps({ value: e.target?.value || '' })
+                    change: (e: EventInterface) => {
+                        this.setProps({ value: e.target.value || '' })
                         props.events?.change?.(e)
                     },
-                    blur: (e: PointerEvent) => {
-                        this.setProps({ hasError: !validateField(this.props.value, this.props.name) })
+                    blur: (e: EventInterface) => {
+                        this.setProps({ hasError: !validateField(this.props.value ?? '', this.props.name) })
                         props.events?.blur?.(e)
                     }
                 }
@@ -49,6 +53,10 @@ export class Input extends Block<InputProps> {
 
     public setValue (value: string): void {
         this.setProps({ value })
+    }
+
+    public getValue (): string {
+        return this.getProps('value')
     }
 
     render (): DocumentFragment {

@@ -3,12 +3,14 @@ import compiledTemplate from './message.hbs'
 import './message.scss'
 import { Text } from '../text/text'
 
-interface MessageProps {
+export interface MessageProps {
     isYou: boolean
     text?: string
     isRead?: boolean
     time?: string
     img?: any
+    content?: string
+    user_id?: number
 }
 
 export class Message extends Block<MessageProps> {

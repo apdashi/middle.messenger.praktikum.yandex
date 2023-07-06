@@ -1,5 +1,4 @@
 import { EventBus } from './EventBus'
-import { nanoid } from 'nanoid'
 
 // Нельзя создавать экземпляр данного класса
 class Block<P extends Record<string, any> = any> {
@@ -10,8 +9,8 @@ class Block<P extends Record<string, any> = any> {
         FLOW_RENDER: 'flow:render'
     } as const
 
-    public id = nanoid(6)
-    protected props: P
+    public id = Math.random()
+    public props: P
     public children: Record<string, Block | Block[]>
     private readonly eventBus: () => EventBus
     private _element: HTMLElement | null = null
@@ -113,6 +112,7 @@ class Block<P extends Record<string, any> = any> {
         }
     }
 
+    // @ts-expect-error
     protected componentDidUpdate (oldProps: P, newProps: P): boolean {
         return true
     }
@@ -123,6 +123,10 @@ class Block<P extends Record<string, any> = any> {
         }
 
         Object.assign(this.props, nextProps)
+    }
+
+    getProps = (key: string): any => {
+        return this.props[key]
     }
 
     get element (): HTMLElement | null {

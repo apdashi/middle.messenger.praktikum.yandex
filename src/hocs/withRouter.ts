@@ -2,6 +2,7 @@ import type Block from '../utils/Block'
 import Router from '../utils/Router'
 
 export function withRouter (Component: typeof Block<any>): any {
+// @ts-expect-error
   type Props = typeof Component extends typeof Block<infer P> ? P : any
 
   return class WithRouter extends Component {

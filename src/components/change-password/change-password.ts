@@ -4,8 +4,11 @@ import { Button } from '../button/button'
 import UserController from '../../controllers/user'
 import { Input } from '../input/input'
 
-export class ChangePassword extends Block {
-    constructor (props: ProfileFormProps) {
+interface InterChangePassword {
+    close: () => void
+}
+export class ChangePassword extends Block<InterChangePassword> {
+    constructor (props: InterChangePassword) {
         super(props)
     }
 
@@ -16,7 +19,9 @@ export class ChangePassword extends Block {
             events: {
                 click: () => {
                     UserController.changePassword({
+                        // @ts-expect-error
                         oldPassword: this.children.oldPassword.props.value,
+                        // @ts-expect-error
                         newPassword: this.children.newPassword.props.value
                     }).finally(() => this.props.close())
                 }
@@ -42,6 +47,6 @@ export class ChangePassword extends Block {
     }
 
     render (): DocumentFragment {
-        return this.compile(compiledTemplate, { ...this.props })
+        return this.compile(compiledTemplate, this.props)
     }
 }

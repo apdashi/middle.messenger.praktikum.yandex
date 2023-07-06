@@ -1,20 +1,21 @@
 import Base from './base'
 
 export interface SigninData {
-    login: string
-    password: string
+    login?: string
+    password?: string
 }
 
 export interface SignupData {
-    first_name: string
-    second_name: string
-    login: string
-    email: string
-    password: string
-    phone: string
+    first_name?: string
+    second_name?: string
+    login?: string
+    email?: string
+    password?: string
+    phone?: string
 }
 
 export interface User {
+    display_name?: string
     id: number
     first_name: string
     second_name: string
@@ -38,7 +39,7 @@ export class AuthAPI extends Base {
         await this.http.post('/signup', data)
     }
 
-    async read (): Promise<User> {
+    async read (): Promise<Record<string, any>> {
         return await this.http.get('/user')
     }
 
